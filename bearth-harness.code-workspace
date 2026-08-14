@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "bearth-harness",
+			"path": "."
+		},
+		{
+			"name": "bearthstories",
+			"path": "../bearthstories.com"
+		},
+		{
+			"name": "midwifery-wiki",
+			"path": "../midwifery-wiki"
+		}
+	],
+	"settings": {}
+}

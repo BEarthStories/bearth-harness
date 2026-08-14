@@ -1,0 +1,38 @@
+{
+	"$schema": "https://paniolo.ai/schemas/paniolo.config.v1.json",
+	"workspace": {
+		"file": "bearth-harness.code-workspace"
+	},
+	"wiki": {
+		"wikis": [
+			{
+				"name": "bearthstories",
+				"root": "../bearthstories.com"
+			},
+			{
+				"name": "midwifery-wiki",
+				"root": "../midwifery-wiki/wiki"
+			}
+		],
+		"knownRepos": ["bearth-harness", "bearthstories", "midwifery-wiki"],
+		"repoPaths": {
+			"bearth-harness": ".",
+			"bearthstories": "../bearthstories.com",
+			"midwifery-wiki": "../midwifery-wiki"
+		}
+	},
+	"qmd": {
+		"hooks": {
+			"mode": "search",
+			"interleave": true
+		},
+		"collections": {
+			"bearthstories": {},
+			"midwifery-wiki": {
+				"codeComments": {
+					"exclude": ["raw/**"]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "runId": "fa4baac4bd068acb1e3e0083",
+  "pid": 29300,
+  "status": "exited",
+  "stage": "exited",
+  "startedAt": "2026-08-14T04:09:31.145Z",
+  "updatedAt": "2026-08-14T04:10:10.895Z",
+  "binaryVersion": "0.5.30",
+  "gpuMode": "layers",
+  "exitReason": "shutdown requested by client"
+}
