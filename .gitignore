@@ -1,0 +1,26 @@
+node_modules/
+.pnpm-store/
+
+# Local caches / qmd machine prefs
+.cache/
+.qmd-local.json
+.cursor/rules/qmd-retrieval.mdc
+
+# Logs
+*.log
+.eslintcache
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Per-user overrides
+CLAUDE.local.md
+GEMINI.local.md
+.claude/settings.local.json
+.codex/config.local.toml
+
+# OS / editor
+.DS_Store
+Thumbs.db
