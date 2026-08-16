@@ -22,6 +22,7 @@
 		}
 	},
 	"qmd": {
+		"modelDaemon": "auto",
 		"hooks": {
 			"mode": "search",
 			"interleave": true

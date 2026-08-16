@@ -1,0 +1,36 @@
+{
+	"name": "@bearthstories/harness",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Bearth Stories harness — shared AI intelligence layer (skills, tooling, multi-vendor adapters).",
+	"type": "module",
+	"scripts": {
+		"postinstall": "paniolo bootstrap",
+		"scan": "paniolo scan",
+		"lint": "paniolo scan --fail-on warn .",
+		"check:wiki": "paniolo wiki --config paniolo.config.json",
+		"qmd": "paniolo qmd",
+		"qmd:search": "paniolo qmd search",
+		"qmd:reindex": "paniolo qmd reindex",
+		"evolve": "paniolo evolve",
+		"workspace:list": "paniolo workspace list",
+		"cursor:workspace": "paniolo workspace launch agent",
+		"codex:workspace": "paniolo workspace launch codex",
+		"copilot:workspace": "paniolo workspace launch copilot",
+		"devin:workspace": "paniolo workspace launch devin",
+		"skills:update": "paniolo skills update"
+	},
+	"dependencies": {
+		"@paniolo/cli": "^0.5.32"
+	},
+	"engines": {
+		"node": ">=24"
+	},
+	"packageManager": "pnpm@11.18.0",
+	"trustedDependencies": [
+		"tree-sitter-go",
+		"tree-sitter-javascript",
+		"tree-sitter-python",
+		"tree-sitter-rust"
+	]
+}

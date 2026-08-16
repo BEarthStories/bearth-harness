@@ -1,0 +1,8 @@
+minimumReleaseAgeExclude:
+  - '@paniolo/cli-darwin-arm64@0.5.32'
+  - '@paniolo/cli-darwin-x64@0.5.32'
+  - '@paniolo/cli-linux-arm64@0.5.32'
+  - '@paniolo/cli-linux-x64@0.5.32'
+  - '@paniolo/cli-win32-arm64@0.5.32'
+  - '@paniolo/cli-win32-x64@0.5.32'
+  - '@paniolo/cli@0.5.32'

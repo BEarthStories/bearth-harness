@@ -1,0 +1,85 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@paniolo/cli':
+        specifier: ^0.5.32
+        version: 0.5.32
+
+packages:
+
+  '@paniolo/cli-darwin-arm64@0.5.32':
+    resolution: {integrity: sha512-QZIGkVpUGw/Cgz01MrNVh4F1AZym70CYdM+4GU1QNCpKtubBVXlpmOeWaGNq+gRCLlFBGcor8zYICGSeN/tfbw==}
+    cpu: [arm64]
+    os: [darwin]
+    hasBin: true
+
+  '@paniolo/cli-darwin-x64@0.5.32':
+    resolution: {integrity: sha512-AKlIfncDkLgnI8Hv0kx4GBLNu0IjCa182MLD369sBtMXiLb1NwA2qjD0ehFEJ7BtektnVIwWuXFtdcrX89EbWA==}
+    cpu: [x64]
+    os: [darwin]
+    hasBin: true
+
+  '@paniolo/cli-linux-arm64@0.5.32':
+    resolution: {integrity: sha512-KvecBoz9WcuOwnrOStcbp46SApkmsUzbVa0o/QXIy3koZtrSsvtuzN4lgHGDJ/OTjge15niHGJgy3uOy/pUIXg==}
+    cpu: [arm64]
+    os: [linux]
+    hasBin: true
+
+  '@paniolo/cli-linux-x64@0.5.32':
+    resolution: {integrity: sha512-ALWqtN8/cAsXzPYZDseDRnezHF3HFPI3Cj86glgjJMUB8Bhal98qNf2DLBsJ06r2dwoZKXWD2kEL0stO4sT2dw==}
+    cpu: [x64]
+    os: [linux]
+    hasBin: true
+
+  '@paniolo/cli-win32-arm64@0.5.32':
+    resolution: {integrity: sha512-N9CNCZRUNC8P9Kft2kjNd5UnXsCpHp5FR1nNLK2SDPZ7VnuampDQf4fR1t3efPavrCaC/m70ehHyqHvF+oZxog==}
+    cpu: [arm64]
+    os: [win32]
+    hasBin: true
+
+  '@paniolo/cli-win32-x64@0.5.32':
+    resolution: {integrity: sha512-GcyNyPwb6Cel19eVhUHBJaDi3xh+sOe3Y2R4yYZQBwv/KA4k9DZ7Af3A/VOr0BfRX6TvSHGyi/NVycsUwrfQBg==}
+    cpu: [x64]
+    os: [win32]
+    hasBin: true
+
+  '@paniolo/cli@0.5.32':
+    resolution: {integrity: sha512-zqD8+Z8d5e/8AnS6uVb8f0Ki0maG4/EWGIIT29W/ekjZ+30gDYCmFMiMNWQKdxPgiKrYckOIWRKangh3VLg0mA==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+snapshots:
+
+  '@paniolo/cli-darwin-arm64@0.5.32':
+    optional: true
+
+  '@paniolo/cli-darwin-x64@0.5.32':
+    optional: true
+
+  '@paniolo/cli-linux-arm64@0.5.32':
+    optional: true
+
+  '@paniolo/cli-linux-x64@0.5.32':
+    optional: true
+
+  '@paniolo/cli-win32-arm64@0.5.32':
+    optional: true
+
+  '@paniolo/cli-win32-x64@0.5.32':
+    optional: true
+
+  '@paniolo/cli@0.5.32':
+    optionalDependencies:
+      '@paniolo/cli-darwin-arm64': 0.5.32
+      '@paniolo/cli-darwin-x64': 0.5.32
+      '@paniolo/cli-linux-arm64': 0.5.32
+      '@paniolo/cli-linux-x64': 0.5.32
+      '@paniolo/cli-win32-arm64': 0.5.32
+      '@paniolo/cli-win32-x64': 0.5.32
