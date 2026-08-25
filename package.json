@@ -21,7 +21,7 @@
 		"skills:update": "paniolo skills update"
 	},
 	"dependencies": {
-		"@paniolo/cli": "^0.5.36"
+		"@paniolo/cli": "^0.5.37"
 	},
 	"engines": {
 		"node": ">=24"
