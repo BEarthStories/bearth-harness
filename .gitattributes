@@ -1,0 +1,6 @@
+# Normalize line endings to LF in the repo on every platform. Skills and
+# scripts are read across Windows, WSL, and macOS, and CRLF on a Windows
+# checkout makes every skill file hash as "locally modified" against the
+# LF-based content the skill registry recorded — `paniolo skills update`
+# then refuses to touch any of them, not just genuinely customized ones.
+* text=auto eol=lf
