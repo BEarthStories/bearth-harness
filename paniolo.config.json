@@ -1,26 +1,10 @@
 {
-	"$schema": "https://paniolo.ai/schemas/paniolo.config.v1.json",
+	"$schema": "https://paniolo.ai/schemas/paniolo.config.v2.json",
+	"version": "0.5.64",
 	"workspace": {
 		"file": "bearth-harness.code-workspace"
 	},
-	"wiki": {
-		"wikis": [
-			{
-				"name": "bearthstories",
-				"root": "../bearthstories.com"
-			},
-			{
-				"name": "midwifery-wiki",
-				"root": "../midwifery-wiki/wiki"
-			}
-		],
-		"knownRepos": ["bearth-harness", "bearthstories", "midwifery-wiki"],
-		"repoPaths": {
-			"bearth-harness": ".",
-			"bearthstories": "../bearthstories.com",
-			"midwifery-wiki": "../midwifery-wiki"
-		}
-	},
+	"wiki": {},
 	"qmd": {
 		"modelDaemon": "off",
 		"hooks": {
@@ -35,5 +19,69 @@
 				}
 			}
 		}
-	}
+	},
+	"staleness": {
+		"enabled": false,
+		"ledgerPath": ".paniolo/staleness",
+		"autoMerge": true,
+		"agentProfiles": {
+			"codex-gpt-5-5": {
+				"adapter": "codex",
+				"model": "gpt-5.5"
+			},
+			"cursor-swe-2-high": {
+				"adapter": "cursor",
+				"model": "swe-2-high"
+			}
+		},
+		"roles": {
+			"verifier": "codex-gpt-5-5",
+			"verdictChallenger": "codex-gpt-5-5",
+			"remediator": "cursor-swe-2-high",
+			"patchChallenger": "codex-gpt-5-5"
+		},
+		"limits": {
+			"maxAllegationsPerPhase": 25,
+			"timeoutMs": 120000,
+			"maxOutputBytes": 262144,
+			"maxRepairAttempts": 1,
+			"maxPacketBytes": 49152,
+			"maxInvocationsPerAllegation": 8
+		},
+		"retrieval": {
+			"topK": 4,
+			"maxImmediate": 50
+		},
+		"surfaces": {
+			"wikiPages": {
+				"repositories": ["midwifery-wiki"],
+				"include": ["wiki/**/*.md"]
+			},
+			"docs": {
+				"repositories": ["bearthstories"],
+				"include": ["*.md", "README.md", "CONTRIBUTING.md", "docs/**/*.md"],
+				"exclude": ["node_modules/**", "dist/**", "generated/**"]
+			},
+			"codeComments": {
+				"repositories": ["bearthstories"],
+				"include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+				"exclude": ["node_modules/**", "dist/**", "generated/**"]
+			}
+		}
+	},
+	"repos": {
+		"bearthstories": {
+			"path": "../bearthstories.com",
+			"wiki": {
+				"root": "."
+			}
+		},
+		"midwifery-wiki": {
+			"path": "../midwifery-wiki",
+			"wiki": {
+				"root": "wiki"
+			}
+		}
+	},
+	"name": "bearth-harness"
 }

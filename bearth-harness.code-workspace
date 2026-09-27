@@ -13,5 +13,16 @@
 			"path": "../midwifery-wiki"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"chat.agentSkillsLocations": {
+			".agents/skills/": true
+		},
+		"chat.agentFilesLocations": {
+			".agents/agents/": true
+		},
+		"chat.useCustomAgentHooks": true,
+		"npm.autoDetect": "off",
+		"terminal.integrated.defaultProfile.windows": "PowerShell",
+		"terminal.integrated.defaultProfile.linux": "bash"
+	}
 }
