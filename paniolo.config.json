@@ -50,7 +50,13 @@
 		},
 		"retrieval": {
 			"topK": 4,
-			"maxImmediate": 50
+			"maxImmediate": 50,
+			"shadow": {
+				"enabled": true,
+				"documentPoolSize": 20,
+				"sectionTopK": 2,
+				"maxEntitiesPerRun": 25
+			}
 		},
 		"surfaces": {
 			"wikiPages": {

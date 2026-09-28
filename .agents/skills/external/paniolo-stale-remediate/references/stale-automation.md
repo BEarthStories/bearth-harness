@@ -1,6 +1,6 @@
 ---
 source-slug: stale-automation
-source-hash: d1de7ceed087e1b6f62c35253f8d420a3bbb855b62725dc3d908b445963f18b1
+source-hash: 694f5fe132d9a8deffdb616465ac631d3d9fcbae8da264da926d6988b51f5db8
 bundled: 2026-09-27
 title: Stale Automation
 type: concept
@@ -84,7 +84,7 @@ configured scope, and metrics:
 | --- | --- | --- |
 | `wiki` | `declared-watch/1` | Registered wiki pages whose frontmatter declares watches |
 | `docs` | `docs-declared/1` | Ordinary repository Markdown docs carrying `staleness:` frontmatter |
-| `comment` | `comment-assoc/1` | Parser-owned code comments (tree-sitter; Rust and TypeScript/TSX/JS/JSX) bound to their owning symbol |
+| `comment` | `comment-assoc/1` | Parser-owned code comments (tree-sitter; Rust, TypeScript/TSX/JS/JSX, C#, PowerShell, shell, and Python) bound to their owning symbol; Python docstrings are included |
 
 A deleted file marks open allegations at that path `obsolete`; generated
 files and floating comments are skipped.
@@ -151,7 +151,8 @@ transition table.
 - `ranch-hand/crates/staleness/` — the product-neutral engine: detection,
   the store, agent orchestration, remediation, merge gate, corpus, and eval.
 - `ranch-hand/crates/paniolo-cli/src/commands/stale.rs` — the
-  `paniolo stale` command surface; `stale_shadow.rs` holds `shadow-qmd`.
+  `paniolo stale` command surface; `stale_shadow.rs` holds the frozen
+  `shadow-qmd` replay producer and the opt-in live qmd measurement lane.
 - The `stale` cargo feature gates the command and is part of
   `release-core`, so every release lane builds it. A binary without the
   feature reports `unrecognized subcommand 'stale'`.

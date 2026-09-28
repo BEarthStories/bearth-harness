@@ -61,14 +61,14 @@
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-stale/SKILL.md",
-			"computedHash": "2b233e48c2be0c28c286867f3ec5834f62b0c25c9c468ee17de7ee47580a4543",
+			"computedHash": "140464ddc939c162c22fbe4e0caf506e52f9610ef406b3853d72379004ca03d1",
 			"resolvedRef": "main"
 		},
 		"paniolo-stale-remediate": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-stale-remediate/SKILL.md",
-			"computedHash": "62243ada01ca04bf9282a9a64078f791aa2f7284f1da1c6fd24920b2911a09ec",
+			"computedHash": "0edbd3d8a944f1e7ba69a15b98e0cd96f094130a4e0f8c215dc717a0a5d12373",
 			"resolvedRef": "main"
 		},
 		"paniolo-typescript-best-practices": {
