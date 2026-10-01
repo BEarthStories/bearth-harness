@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "evidence_id": "E-9b0b73342b60fbef",
+  "allegation_id": "S-fc45e3ef5eeb3f69",
+  "source_repo": "bearthstories",
+  "commit": "52d0d2bfb018ce2e6559d80609f9fd25a2ee1c20",
+  "changed_entity": "7704840a8a368c63",
+  "source_path": "birth-centers.md",
+  "source_hunks": [],
+  "detector_version": "docs-sweep/1"
+}

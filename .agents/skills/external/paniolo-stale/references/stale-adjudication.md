@@ -1,14 +1,14 @@
 ---
 source-slug: stale-adjudication
-source-hash: 5d2a80e14bd1604d4c4a986309ed2302623131174eb659315b4fd767f4ac8f4d
-bundled: 2026-09-27
+source-hash: ad5cb87d8893318b2a0a4618ab1b2bf436ab63d364261654c93fe3bb068bf169
+bundled: 2026-09-28
 title: Stale Adjudication
 type: concept
 tags:
 - staleness
 - harness-eng
 - agents
-updated: 2026-09-27
+updated: 2026-09-28
 ---
 
 # Stale Adjudication
@@ -52,6 +52,13 @@ Config assigns each role an agent profile; CLI flags override per run
 ([stale-configuration](./stale-configuration.md)). One bounded repair retry is allowed per
 invocation; after that the phase reports the failure instead of guessing.
 
+Verifier and verdict challenger receive any explicit `as-of` date or
+product version with the allegation. When a version resolves as a Git
+revision, the packet includes a bounded source excerpt from that
+revision. They compare the claim against its stated scope, not merely
+today's code. If the scope cannot be grounded, they return insufficient
+evidence rather than a confident fresh or stale verdict.
+
 ---
 
 <a id="adapters"></a>
@@ -60,11 +67,12 @@ invocation; after that the phase reports the failure instead of guessing.
 
 An adapter is a conformance-approved `ProcessSpec` — a fixed CLI
 invocation, not a shell template. Admitted adapters: `codex`, `claude`,
-`cursor`. A `devin` spec exists in code but is not admitted by the CLI.
+`cursor`, and `devin`.
 
 | Adapter | Invocation shape |
 | --- | --- |
 | `codex` | `codex exec --sandbox read-only --skip-git-repo-check --json --model <model> -` — payload on stdin, last `agent_message.text` JSONL entry is the response |
+| `devin` | `devin -p --prompt-file <file> --model <model> --respect-workspace-trust false --permission-mode auto` — payload in an exclusive temporary file, JSON on stdout |
 | `claude` | `claude -p --output-format json --model <model> --disallowedTools Bash,Write,Edit,NotebookEdit,Read,WebFetch,WebSearch` — stdin payload, `.result` envelope |
 | `cursor` | `cursor-agent -p --output-format json --mode ask --model <model> <input>` — payload as argv, `.result` envelope |
 
@@ -174,8 +182,11 @@ feature, then runs
 --code ranch-hand:. --wiki paniolo-wiki:.staleness/paniolo-wiki
 --base <base> --head <head> --dry-run`.
 The scan is `continue-on-error` and summarized into `$GITHUB_STEP_SUMMARY`
-(capped at 8192 bytes) with the JSON uploaded as the `staleness-report`
-artifact. It can be inconclusive; it can never block a merge.
+(capped at 8192 bytes). The `staleness-report` artifact includes the scan
+JSON plus `staleness-meta.json` with success/failure and elapsed seconds.
+The summary includes watch coverage when the report contains it; a failed
+scan or missing report is not presented as zero candidates. The advisory
+can be inconclusive; it can never block a merge.
 
 ---
 

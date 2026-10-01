@@ -4,6 +4,9 @@
 	"workspace": {
 		"file": "bearth-harness.code-workspace"
 	},
+	"rules": {
+		"paniolo-state-gitignored": "off"
+	},
 	"wiki": {},
 	"qmd": {
 		"modelDaemon": "off",
@@ -25,20 +28,20 @@
 		"ledgerPath": ".paniolo/staleness",
 		"autoMerge": true,
 		"agentProfiles": {
-			"codex-gpt-5-5": {
-				"adapter": "codex",
-				"model": "gpt-5.5"
-			},
-			"cursor-swe-2-high": {
+			"cursor-auto": {
 				"adapter": "cursor",
+				"model": "auto"
+			},
+			"devin-swe-2-high": {
+				"adapter": "devin",
 				"model": "swe-2-high"
 			}
 		},
 		"roles": {
-			"verifier": "codex-gpt-5-5",
-			"verdictChallenger": "codex-gpt-5-5",
-			"remediator": "cursor-swe-2-high",
-			"patchChallenger": "codex-gpt-5-5"
+			"verifier": "cursor-auto",
+			"verdictChallenger": "devin-swe-2-high",
+			"remediator": "cursor-auto",
+			"patchChallenger": "devin-swe-2-high"
 		},
 		"limits": {
 			"maxAllegationsPerPhase": 25,

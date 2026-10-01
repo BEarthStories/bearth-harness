@@ -1,9 +1,10 @@
 ---
 source-slug: plan-acceptance-evidence
-source-hash: 3d4d706f40baf3553cd0b8157d30fa52638f384ef539b3c3b374690e3386c2a2
-bundled: 2026-08-20
+source-hash: 17f29b98877140a23634656baec27d23de602bc408257dde2f805f2b4c3a82a9
+bundled: 2026-09-25
 title: Plan Acceptance Evidence
 type: concept
+status: completed
 tags:
 - authoring
 - plans
@@ -52,10 +53,6 @@ prevented it: a rule, skill, concept page, fixture helper, deterministic check, 
 product-specific guidance in that product's harness and put only reusable engineering guidance in
 shared documentation.
 
-## See also
+---
 
-- Cross-Layer Data Flow Verification
-- Completion Means the Gate Ran
-- E2E Fixture Contract Validation
-- Playwright Failure Classification
-- Test-Owned Entities
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

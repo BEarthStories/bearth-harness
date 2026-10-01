@@ -4,7 +4,7 @@ description: |
   Drive the paniolo stale adjudication and remediation pipeline — run verifier/challenger agent phases, propose and merge remediation PRs, operate the durable worker, and calibrate detection with replay, shadow lanes, and canaries. Use when asked to run, adjudicate, remediate, propose, merge-sync, automate, or calibrate staleness work. To inspect the ledger without mutating, use paniolo-stale.
 license: MIT
 metadata:
-  version: 0.1.2
+  version: 0.1.4
 tags:
 - staleness
 - remediation
@@ -18,6 +18,7 @@ references:
 - references/stale-commands.md
 - references/stale-configuration.md
 - references/stale-ledger.md
+- references/stale-lifecycle.md
 - references/stale-triggers.md
 ---
 
@@ -32,7 +33,7 @@ adapter, disposition, and merge-gate contract.
 
 ## Before Running
 
-- The configured agent CLIs (`codex`, `claude`, `cursor`) must be installed
+- The configured agent CLIs (`codex`, `claude`, `cursor`, `devin`) must be installed
   and signed in — preflight runs `<cli> --version` per role and stops
   cleanly if one fails. Roles, models, and budgets come from the
   `staleness` config; see
@@ -65,6 +66,17 @@ adapter, disposition, and merge-gate contract.
    scan checkpoints, adjudicates, proposes, and publishes the ledger as a PR on
    `staleness/ledger`. One run per ledger via `run.lock`.
 
+## Lifecycle Lane
+
+`scan --wiki <key>:<repo-root>` also nominates `LC-` lifecycle candidates
+for `plan-`/`design-` pages whose work has shipped. The same `run` →
+`propose` → `merge-sync` loop moves them `pending-review → applied`. The
+page legibility contract — verdict plus evidence pointer on one status
+line, gate verdicts in a `Result` column — decides whether a page can
+nominate at all; see
+[stale-lifecycle](references/stale-lifecycle.md) before treating a quiet
+scan as "nothing to do".
+
 ## Calibration
 
 - `seed <target> <claim> --expected stale|fresh` plants a known-answer
@@ -73,7 +85,9 @@ adapter, disposition, and merge-gate contract.
   against a disposable `--root`; it writes ledger records.
 - `shadow-qmd <out.json>` measures the qmd retrieval lane over the holdout
   corpus; `replay --full --shadow-observations <file>` scores lane
-  admission; `score-shadow <file>` re-validates a file standalone.
+  admission; `score-shadow <file>` re-validates a file standalone. A missing
+  or invalid qmd index-integrity manifest fails scoring rather than
+  creating a negative retrieval label.
 - `staleness.retrieval.shadow.enabled: true` records qmd document and
   section funnels during live `scan` and `worker` cycles. It remains
   non-authoritative: no fuzzy allegation, agent call, disposition, or merge
@@ -89,6 +103,8 @@ adapter, disposition, and merge-gate contract.
 - Do not bypass the merge gate or delete `automerge.disabled` to make a
   merge happen; investigate what the gate rejected.
 - Do not point `replay` at a live ledger.
+- Do not promote a fuzzy or weighted-routing lane on an invalid index,
+  unlabeled tail, or a report that only counts its own agent filings.
 - Do not export secrets hoping to reach agent CLIs — invocations run with a
   scrubbed environment; fix the CLI's own sign-in instead.
 - Do not delete `.stale-rem-*` or `.stale-ledger-*` worktrees while their
@@ -111,6 +127,8 @@ adapter, disposition, and merge-gate contract.
   `staleness` config schema, validation, and CLI overrides
 - [stale-ledger](references/stale-ledger.md) — sealed observations,
   bundles, proposals, locks
+- [stale-lifecycle](references/stale-lifecycle.md) — `LC-` candidates,
+  page legibility grammar, status-patch proposals
 
 ---
 

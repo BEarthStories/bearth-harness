@@ -4,8 +4,17 @@ node_modules/
 # Local caches / qmd machine prefs
 .cache/
 .qmd-local.json
-.paniolo/
 .cursor/rules/qmd-retrieval.mdc
+
+# `paniolo` local state: evolve journals and experience digests, the license
+# key, and a machine-local CLI binary. The staleness ledger is durable Git
+# state; only its process locks remain local.
+.paniolo/*
+!.paniolo/staleness/
+!.paniolo/staleness/**
+.paniolo/staleness/run.lock
+.paniolo/staleness/state.lock
+/.stale-ledger-*/
 paniolo.config.json.pre-migration*.bak
 
 # Logs

@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "evidence_id": "E-bc661d55ec2348b9",
+  "allegation_id": "S-4bb2a9679d2daf0a",
+  "source_repo": "bearthstories",
+  "commit": "52d0d2bfb018ce2e6559d80609f9fd25a2ee1c20",
+  "changed_entity": "77ff7ea078dc9b37",
+  "source_path": "README.md",
+  "source_hunks": [],
+  "detector_version": "docs-sweep/1"
+}

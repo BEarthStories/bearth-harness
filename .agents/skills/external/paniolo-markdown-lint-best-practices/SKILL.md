@@ -8,6 +8,7 @@ metadata:
 tags:
 - markdown
 - lint
+- wiki
 references:
 - references/doc-content.md
 - references/markdown-lint.md
@@ -119,3 +120,7 @@ Do not finish with red validation.
 - Do not use bare URLs in prose — always `[text](url)`.
 - Do not skip `paniolo wiki` when editing wiki pages.
 - Do not exceed the file size limits for skills and instruction files.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

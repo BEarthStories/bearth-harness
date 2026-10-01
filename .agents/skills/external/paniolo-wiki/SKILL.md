@@ -4,15 +4,18 @@ description: |
   Maintain a customer LLM wiki — ingest sources, author pages, lint, and reorganize pages. Use when adding or updating wiki pages, snapshotting raw sources, moving or deleting pages, or running wiki validation. Do not use for editing the wiki validator code itself (that is ordinary code work).
 license: MIT
 metadata:
-  version: 0.5.15
+  version: 0.5.16
 tags:
 - wiki
-- llm-wiki
 user-invocable: true
 references: []
 ---
 
 **Requires:** file-read, file-write, terminal (to run `paniolo wiki` from harness).
+
+Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package;
+`paniolo bootstrap` verifies the binary it links against it and refuses on a
+mismatch.
 
 # Maintaining a wiki
 
@@ -64,6 +67,12 @@ that directory's `SOURCES.md`) or do not claim it. The validator enforces that e
 cited snapshot resolves — both `raw/<path>` entries and bare slugs — but it cannot
 catch a fact you invented, so this discipline is on you.
 
+`raw/` holds **reference documents, not source code.** Program-language files
+(`.ts`, `.tsx`, `.js`, `.rs`, `.py`, `.hs`, …), scripts (`.sh`, `.ps1`, `.cmd`),
+stylesheets (`.css`), and binaries do not belong under `raw/` — evidence for product
+code lives in page prose as commit IDs, file paths, and observed checks. Reference
+documents are fine: `.md`, `.html`, `.pdf`, images, and data files.
+
 Document anything that makes an AI agent more reliable across a long session:
 harness structure, instruction-authoring techniques, enforcement/correction loops,
 memory patterns, and distribution/remediation patterns. Prefer one concept per page;
@@ -95,11 +104,31 @@ Three ways it goes wrong:
 A rename must land on a correctly prefixed slug. `paniolo wiki rename` rewrites
 links to whatever target you hand it and will not tell you the target is wrong.
 
+## Creating a new wiki repo
+
+`paniolo wiki init` is repo-level, not page-level — it stamps a brand-new customer
+wiki repo from the embedded template (`raw/`, `wiki/`, `wiki/log.md`, config
+scaffolding) into an empty directory. Use it once, before any `wiki new`, when
+the wiki repo itself does not exist yet; `paniolo init` (the top-level onboarding
+command) calls it for you during first-time setup. It needs no `--config` — there
+is nothing to register against yet:
+
+```bash
+paniolo wiki init --name Northwind --out northwind-wiki --register paniolo.config.json
+```
+
+`--register` adds the stamped wiki's `wiki.wikis[]` entry, `knownRepos`, and
+`repoPaths` to the named harness config in the same step; without it, the
+command prints what to add by hand. `--print-answers`/`--answers` round-trip
+the gathered answers for scripted or repeated stamps, and `--dry-run` reports
+what would be written without writing it.
+
 ## Creating a page
 
 `paniolo wiki new` stamps the page, its frontmatter, the `wiki/log.md` entry, and
-one index link in a single deterministic step. Use it instead of hand-writing a
-file — the log entry and index link are the two things hand-creation forgets.
+— when you pass `--index` — a link on that focused index page, all in one
+deterministic step. Use it instead of hand-writing a file — the log entry is the
+thing hand-creation forgets.
 
 ```bash
 paniolo wiki new <slug> --config paniolo.config.json \
@@ -111,12 +140,40 @@ paniolo wiki new <slug> --config paniolo.config.json \
 config's `wiki.wikis[].pagePrefixes`. Kinds are declared per wiki, not
 workspace-wide — one corpus may file plans and decisions while another files
 neither. One flag supplies the slug prefix, the `type:`, the log verb, the
-starting `status:`, and the indexes to link into:
+starting `status:`, and any focused indexes the kind declares:
 
 ```bash
-paniolo wiki new <slug> --kind plan --config paniolo.config.json
+paniolo wiki new <slug> --kind plan --config paniolo.config.json   --tags a,b --domain <domain> --source raw/<domain>/<file>.md
 # → plan-<slug>.md, type/verb/status from the kind, indexes wired
 ```
+
+A kind supplies type, verb, status and indexes — **not tags, and not the log
+domain.** Those are per page rather than per kind, so pass them:
+
+- **Always pass `--tags`.** A page needs them, and from 0.5.41 the command
+  refuses without them: `frontmatter-required` reads an empty list as absent,
+  so a tagless page fails the gate. Every page in both corpora carries tags.
+- **Always pass `--domain`.** It must be one the corpus accepts, joined with
+  ` + ` for a page drawing on two. **On 0.5.40 and earlier it defaults to the
+  wiki's name**, which is never a valid domain, so omitting it writes a
+  `log.md` entry that `check:wiki` then rejects.
+
+**Which domains a corpus accepts is per wiki**, declared as
+`wiki.wikis[].domains` in `paniolo.config.json`. A wiki that declares none
+inherits Paniolo's own five — `authoring`, `business`, `harness-eng`, `meta`,
+`rust` — which is a fallback, not a vocabulary to adopt. Before 0.5.52 the five
+were hardcoded and no corpus could say otherwise.
+
+So a rejected `--domain` has two fixes, and the right one depends on whose
+wiki it is: pick a listed domain, or add yours to that wiki's `domains`. The
+error names the list the corpus is actually being held to, and `wiki new` and
+`log-entry-format` read the same one — a domain the command accepts is a domain
+the validator accepts.
+
+From **0.5.41** the domain is derived from `--source` when omitted —
+`raw/<domain>/…` supplies it — and the command stops rather than guessing when
+nothing derives. Passing it explicitly works on every version and always
+wins.
 
 A slug that already carries a known prefix resolves its kind on its own, so
 passing `decision-<slug>` is equivalent to `<slug> --kind decision`. Any
@@ -154,8 +211,11 @@ worse than none, because it is believed.
    rather than sprawl. Use wikilinks between wiki pages.
 3. Add every required frontmatter field (`title`, `type`, `tags`, `updated`, and
    `sources` unless it is an `index` page). Use a real `YYYY-MM-DD` `updated` date.
-4. List the new/changed page in the relevant category index, or in
-   `wiki/<domain>/index.md` for small domains (avoids an orphan).
+4. Link the new/changed page where a reader would look for it — a `[[wikilink]]`
+   from a related page, or a line on a focused topic index that genuinely
+   curates its subject. Index membership is optional curation, not a filing
+   requirement: an unlinked page warns but still passes, and qmd search finds
+   it either way.
 5. Append a `wiki/log.md` entry: `## [YYYY-MM-DD] <verb> | <domain> | <title>`.
 6. **Run `paniolo wiki` from the harness repo and fix everything it reports.**
    Do not finish red.
@@ -250,6 +310,49 @@ Log it (`## [YYYY-MM-DD] delete | <domain> | <title>`, 1-2 bullets), then run
 Before deleting, check whether the page holds a still-valid fact absent from its
 replacement. The command cannot know that; rescuing it is on you.
 
+### Status and archive are the lifecycle pair
+
+`status` moves a page along its kind's vocabulary; `archive` retires a page
+whose story is over **without losing it**. Both plan by default and write only
+with `--apply`:
+
+```bash
+paniolo wiki status <slug> <value> --config paniolo.config.json            # plan
+paniolo wiki status <slug> <value> --config paniolo.config.json --apply
+paniolo wiki archive <slug> --domain <d> --config paniolo.config.json      # plan
+paniolo wiki archive <slug> --domain <d> --config paniolo.config.json --apply
+paniolo wiki archive <slug> --domain <d> --with <replacement> --config paniolo.config.json --apply
+```
+
+`status` refuses a value outside the kind's declared vocabulary (or the wiki's
+fallback vocabulary for untracked kinds), then stamps `status:`, touches
+`updated:`, and appends the log entry itself.
+
+`archive` requires a closed-tier status first — move the page with `status`
+before it will plan. It then writes a byte-exact snapshot to
+`raw/wiki-archive/<slug>.md` — one flat directory per wiki, so the convention is
+the same everywhere — adds the provenance row to that directory's `SOURCES.md`,
+repoints every actionable link at the snapshot (or at `--with`'s replacement
+page), drops index bullets that existed only to point at the page, removes the
+`wiki/` file — **no stub remains** — and validates what it touched.
+
+Two kinds of reported leftovers deserve different treatment:
+
+- **Unsearched repositories** block the apply outright; fix the `repoPaths`
+  mapping rather than waiving past them.
+- **Residue** is a mention that survived rewriting — usually the slug's words
+  used as ordinary English or a filename (`user-decisions.md`), not a link to
+  the page. Audit the list; when every line is genuinely a mention rather than
+  a reference, `--allow-residue` records that judgment and proceeds.
+
+Archived pages stay searchable: qmd indexes the snapshot, ranks it below
+current pages by default, and `--history` restores raw relevance order when the
+question is about the record itself. MCP exposes the same operations as
+`wiki_set_status` and `wiki_archive` for agent callers.
+
+Log an archive as `## [YYYY-MM-DD] archive | <domain> | <title>` — the command
+writes the entry, but the convention is the log's.
+
 ## Markdown lint best practices
 
 Apply while writing so pages pass `paniolo wiki` (and the harness the project's lint script) on the first try.
@@ -264,11 +367,15 @@ Apply while writing so pages pass `paniolo wiki` (and the harness the project's 
 ## Do Not
 
 - Do not cite a `raw/` path you have not actually snapshotted.
+- Do not snapshot program source code, scripts, or binaries into `raw/` — cite
+  the upstream path and commit in prose instead.
 - Do not name a page without checking the wiki's prefix convention — the
   validator is green either way, so a wrong slug is invisible to `check:wiki`.
 - Do not rename onto an unprefixed slug; the rename command accepts any target.
 - Do not duplicate a fact across two pages — link to one canonical page.
-- Do not leave a page out of its index (orphan) or skip the `wiki/log.md` entry.
+- Do not skip the `wiki/log.md` entry.
+- Do not build or feed a whole-wiki catalog to silence an orphan warning — link
+  a page where a reader would look for it, or leave it findable by search.
 - Do not finish while `paniolo wiki` is red.
 - Do not hand-edit references for a delete, rename, or move — use the commands.
 - Do not force a delete past its refusal; resolve the prose references it names.
@@ -286,3 +393,7 @@ Apply while writing so pages pass `paniolo wiki` (and the harness the project's 
 
 - Validator: `paniolo wiki` in harness (`paniolo wiki` via `@paniolo/cli`).
 - Wiki config: `paniolo.config.json` — lists all wiki roots and known repos.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

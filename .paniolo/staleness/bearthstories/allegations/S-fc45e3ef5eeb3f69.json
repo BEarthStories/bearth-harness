@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "allegation_id": "S-fc45e3ef5eeb3f69",
+  "location": {
+    "repo": "bearthstories",
+    "path": "birth-centers.md",
+    "anchor": "page"
+  },
+  "detector": "docs-sweep/1",
+  "claim": "This document is queued for staleness review by a coverage sweep.",
+  "severity": "low",
+  "state": "pending-verification",
+  "evidence": [
+    "E-9b0b73342b60fbef"
+  ],
+  "revision": 1,
+  "history": []
+}

@@ -29,6 +29,10 @@ Install dependencies once with `pnpm install`. The harness pulls the correct
 wrapper, so no global qmd install is needed. Set `PANIOLO_BIN` only when using a locally built
 binary.
 
+Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package;
+`paniolo bootstrap` verifies the binary it links against it and refuses on a
+mismatch.
+
 - **Windows (PowerShell):** run `paniolo qmd reindex` to build the BM25 index and,
   on a GPU-capable machine, generate the hybrid query embeddings.
 - **WSL (bash):** run `paniolo qmd reindex` to build the BM25 index. GPU embedding
@@ -210,17 +214,24 @@ Add `--full-path` when you need a path to hand to `Read`/`Edit` or an editor.
 - Retrieve: `paniolo qmd get <#docid|path[:from:count]>` / `multi-get <glob|list>`
 - Inspect ranking: `paniolo qmd query --explain "<query>"`
 - Diagnose: `paniolo qmd doctor` (add `--json`, or `--models` for GPU offload)
+- Status: `paniolo qmd status` — what's indexed and how much, no device probing
+  (lighter than `doctor`; add `--json`)
 - Re-index: `paniolo qmd reindex` (add `--prune` to drop orphaned collections)
   — `update` (text index only) and `embed` (vectors only) are its two halves
 - Warm sidecar: `paniolo qmd serve --ensure | --stop | --restart`
   — add `--all` to `--stop` to also reclaim servers that record no harness root
+- Shared model daemons: `paniolo qmd daemon` lists them; `--stop [<pool>]` stops
+  the named one, or the only one running
+- Reclaim disk: `paniolo qmd cleanup` releases cache/orphaned data (cheap);
+  `paniolo qmd vacuum` compacts the index file itself (exclusive-lock rewrite;
+  add `--dry-run` to either first)
 - GPU preference: `paniolo qmd gpu` writes the per-machine `.qmd-local.json`
 - Add `-v` to any command for llama.cpp's model-loading diagnostics.
 
 Two more exist and are not part of normal task work: `mcp` (the MCP server, which
-your editor starts for you) and `hook` (vendor hook plumbing). `eval` and `tune`
-replay logged hook queries to score retrieval variants — reach for `--explain`
-when the question is about one query you just ran.
+your editor starts for you) and `hook` (vendor hook plumbing). `bench`, `eval`,
+and `tune` score and replay retrieval against a fixture or logged hook queries —
+reach for `--explain` instead when the question is about one query you just ran.
 
 ---
 
@@ -272,3 +283,7 @@ when the question is about one query you just ran.
 - Do not kill the `paniolo` process family to recover the warm sidecar — that
   also kills the MCP server. Use `serve --stop` (or `--stop --all`), which
   waits for the process to exit and tells you when one did not.
+
+---
+
+*This skill is brought to you by [Paniolo.ai](https://paniolo.ai).*

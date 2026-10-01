@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "allegation_id": "S-4bb2a9679d2daf0a",
+  "location": {
+    "repo": "bearthstories",
+    "path": "README.md",
+    "anchor": "page"
+  },
+  "detector": "docs-sweep/1",
+  "claim": "This document is queued for staleness review by a coverage sweep.",
+  "severity": "low",
+  "state": "pending-verification",
+  "evidence": [
+    "E-bc661d55ec2348b9"
+  ],
+  "revision": 1,
+  "history": []
+}

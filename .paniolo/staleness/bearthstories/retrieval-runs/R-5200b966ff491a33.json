@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "run_id": "R-5200b966ff491a33",
+  "config_fingerprint": "a11044f0ba331fa7",
+  "changed_entity": "77ff7ea078dc9b37",
+  "repo": "bearthstories",
+  "candidates": [
+    {
+      "section_id": "bearthstories:README.md#page",
+      "lane": "docs-sweep/1",
+      "rank": 0,
+      "scheduled": "deferred",
+      "reason": "coverage-sweep"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "run_id": "R-9b67760686717425",
+  "config_fingerprint": "a11044f0ba331fa7",
+  "changed_entity": "7704840a8a368c63",
+  "repo": "bearthstories",
+  "candidates": [
+    {
+      "section_id": "bearthstories:birth-centers.md#page",
+      "lane": "docs-sweep/1",
+      "rank": 0,
+      "scheduled": "deferred",
+      "reason": "coverage-sweep"
+    }
+  ]
+}
