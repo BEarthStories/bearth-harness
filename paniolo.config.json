@@ -38,9 +38,9 @@
 			}
 		},
 		"roles": {
-			"verifier": "cursor-auto",
+			"verifier": "devin-swe-2-high",
 			"verdictChallenger": "devin-swe-2-high",
-			"remediator": "cursor-auto",
+			"remediator": "devin-swe-2-high",
 			"patchChallenger": "devin-swe-2-high"
 		},
 		"limits": {
