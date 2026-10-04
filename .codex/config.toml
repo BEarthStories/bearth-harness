@@ -1,0 +1,11 @@
+
+
+[mcp_servers.chrome-devtools]
+command = "node"
+args = [
+	"./node_modules/chrome-devtools-mcp/build/src/bin/chrome-devtools-mcp.js",
+	"--browserUrl",
+	"http://127.0.0.1:9222",
+	"--no-usage-statistics",
+]
+startup_timeout_sec = 60

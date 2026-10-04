@@ -21,7 +21,8 @@
 		"skills:update": "paniolo skills update"
 	},
 	"dependencies": {
-		"@paniolo/cli": "^0.5.75"
+		"@paniolo/cli": "^0.5.75",
+		"chrome-devtools-mcp": "1.10.1"
 	},
 	"engines": {
 		"node": ">=24"
