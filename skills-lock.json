@@ -50,6 +50,13 @@
 			"computedHash": "f29514c76aced729852210ef770b23d6a6ba25a130aebb63e79971d5d9ac6dae",
 			"resolvedRef": "main"
 		},
+		"paniolo-shared-browser": {
+			"source": "paniolo-ai/skills",
+			"sourceType": "github",
+			"skillPath": "skills/paniolo-shared-browser/SKILL.md",
+			"computedHash": "8a783a2900fc8199748730b252d021875c892c18e53bcf49bb3bbaf96346c168",
+			"resolvedRef": "main"
+		},
 		"paniolo-skill-best-practices": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
