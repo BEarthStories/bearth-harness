@@ -5,7 +5,13 @@
 		"file": "bearth-harness.code-workspace"
 	},
 	"rules": {
-		"paniolo-state-gitignored": "off"
+		"paniolo-state-gitignored": "off",
+		"dead-code": [
+			"warn",
+			{
+				"ignoreDependencies": ["chrome-devtools-mcp"]
+			}
+		]
 	},
 	"wiki": {},
 	"qmd": {
