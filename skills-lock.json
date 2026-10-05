@@ -54,7 +54,7 @@
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-shared-browser/SKILL.md",
-			"computedHash": "8a783a2900fc8199748730b252d021875c892c18e53bcf49bb3bbaf96346c168",
+			"computedHash": "696d831de3b90eb31a256835c69c7aa41ef0c50466a599bbeab866c3c0e36ec7",
 			"resolvedRef": "main"
 		},
 		"paniolo-skill-best-practices": {
