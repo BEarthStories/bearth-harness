@@ -21,7 +21,12 @@
 					"textlint-rules/": 0
 				}
 			}
-		]
+		],
+		"strict-typecheck-present": "off",
+		"jsdoc-enforcement-present": "off"
+	},
+	"options": {
+		"ci": false
 	},
 	"wiki": {},
 	"qmd": {

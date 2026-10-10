@@ -18,7 +18,9 @@
 		"codex:workspace": "paniolo workspace launch codex",
 		"copilot:workspace": "paniolo workspace launch copilot",
 		"devin:workspace": "paniolo workspace launch devin",
-		"skills:update": "paniolo skills update"
+		"skills:update": "paniolo skills update",
+		"test": "pnpm run lint && pnpm run check:wiki",
+		"test:changed": "paniolo scan --changed --fail-on warn ."
 	},
 	"dependencies": {
 		"@paniolo/cli": "^0.5.77",
