@@ -11,6 +11,16 @@
 			{
 				"ignoreDependencies": ["chrome-devtools-mcp"]
 			}
+		],
+		"rust-first-harness-boundary": [
+			"warn",
+			{
+				"maxFilesByPrefix": {
+					"scripts/": 0,
+					"eslint-rules/": 0,
+					"textlint-rules/": 0
+				}
+			}
 		]
 	},
 	"wiki": {},
