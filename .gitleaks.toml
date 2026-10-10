@@ -1,0 +1,18 @@
+# gitleaks configuration — local secret scanning.
+#
+# Its presence satisfies scan's `secret-scanning-configured` rule. Install gitleaks to
+# enforce real scans before commit:
+#   winget install gitleaks   (or: scoop install gitleaks)
+# Docs: https://github.com/gitleaks/gitleaks
+
+title = "bearth harness gitleaks config"
+
+# Start from gitleaks' built-in ruleset; add repo-specific rules/allowlist below.
+[extend]
+useDefault = true
+
+# Repo-wide allowlist for known non-secrets. Keep entries tightly scoped and
+# commented; prefer path/regex targeting over blanket stopwords.
+[allowlist]
+description = "Global allowlisted paths (non-secret lockfiles)."
+paths = ['''pnpm-lock\.yaml''']
