@@ -9,52 +9,52 @@ importers:
   .:
     dependencies:
       '@paniolo/cli':
-        specifier: ^0.5.77
-        version: 0.5.77
+        specifier: ^0.5.80
+        version: 0.5.80
       chrome-devtools-mcp:
         specifier: 1.10.1
         version: 1.10.1
 
 packages:
 
-  '@paniolo/cli-darwin-arm64@0.5.77':
-    resolution: {integrity: sha512-T7RUQvDqdWXzS/O6wRxPy9lrzDmjmuw2nLGUQHBIAiQ/SKa1tJXnKCaGo+B5Q+jEyLzIol+T/dVX3KAIKxQjIQ==}
+  '@paniolo/cli-darwin-arm64@0.5.80':
+    resolution: {integrity: sha512-RAYleBDx4X/EvPQeuFaprWd8WK37RU6zT9mWHdfeNj0doud6lfmJ1nd3BZWiTZQg+KMzBdXclIp5WMNzdBu5xw==}
     cpu: [arm64]
     os: [darwin]
     hasBin: true
 
-  '@paniolo/cli-darwin-x64@0.5.77':
-    resolution: {integrity: sha512-SGouCUufLHqnavLfP6oEBO6ldFaYx502V4KvdeuVNd9MzJIMPyzhF/WPPv5mpbdZhH3p0sXIEgpU9KHdCYZ7CQ==}
+  '@paniolo/cli-darwin-x64@0.5.80':
+    resolution: {integrity: sha512-y615mH4bVLq1yLtyOClNOPQrJ8VmWkH7ZsR1FBAIhrHDMQoXibKdVMkzcH99Q5dmMdIWcXhoBwDub294/z91Yw==}
     cpu: [x64]
     os: [darwin]
     hasBin: true
 
-  '@paniolo/cli-linux-arm64@0.5.77':
-    resolution: {integrity: sha512-zhkFmSSAkwiDkZTz+fZ8gxwVntP/PhFXadnjQITQVrRMk+VTgRISJhibGxqz2gVnUwatgn6fvVI/BheFaaqs5Q==}
+  '@paniolo/cli-linux-arm64@0.5.80':
+    resolution: {integrity: sha512-5Qfzj316nLx8UAe7SUwN8PGFwXROOm1Y7zOkN7ZfXF9IdcJB5LGyP6OMS34zhW5/oGHFGcRtzzyiE2WCph98IQ==}
     cpu: [arm64]
     os: [linux]
     hasBin: true
 
-  '@paniolo/cli-linux-x64@0.5.77':
-    resolution: {integrity: sha512-CWiFmYzlImR4oVh39BcIEIk3JbW8eo/u7hvlhpXWCA81BCj3XTMfNPT/xKQVObyRYNg0e7mvAQKVNConNlkubw==}
+  '@paniolo/cli-linux-x64@0.5.80':
+    resolution: {integrity: sha512-PhaJFWR8wNNvWSVuFuWVRYcEDfuJgLNs2bEEA6YoHvU7FR9MhwMRc+s3DBh8qEO/rCTArJl9H7X/QTlntrhEGA==}
     cpu: [x64]
     os: [linux]
     hasBin: true
 
-  '@paniolo/cli-win32-arm64@0.5.77':
-    resolution: {integrity: sha512-TmTOjEeVHjHvjdyZl3GK2T3ItHPKuvyODSZWQG6yKEmS/VBefP5tztRDdSbFNp+o62D15uNfBfkqdYZGBZGiLg==}
+  '@paniolo/cli-win32-arm64@0.5.80':
+    resolution: {integrity: sha512-waUha5q/tKij2/rbcZgdyUGqL6orbDuCXmngU7ykMiBVGTXU/7hksznDk2jps9ca7rTzfWf5ocEwwrOKh7hPsQ==}
     cpu: [arm64]
     os: [win32]
     hasBin: true
 
-  '@paniolo/cli-win32-x64@0.5.77':
-    resolution: {integrity: sha512-k7zajA5u427jUZTPgI2IxQACEDBTnTbbrpARV4GBQz0Ygpo82yEvrKmL+Xt/I/ZoRrHEaSx9WxuXNFsA54ub1A==}
+  '@paniolo/cli-win32-x64@0.5.80':
+    resolution: {integrity: sha512-gfrDdMA031uO4urSLf3/L4QjbI3V1804ltDYhd3TYwg6hE19Jp+9gy3K76RoTt+FWKRUZQ/hVBNdfP3fjrw3fg==}
     cpu: [x64]
     os: [win32]
     hasBin: true
 
-  '@paniolo/cli@0.5.77':
-    resolution: {integrity: sha512-q+MHeZSc5nslCAHxD28IdJDEJ6vZT3wq+4bSVRzkXxCU9zNjk3G+P5X/t6cFjagQzivXL6ayG4U/Y4tfsN9dKw==}
+  '@paniolo/cli@0.5.80':
+    resolution: {integrity: sha512-BMtclszuNJ5ZuE9OSyBBhDNlX9MdXILOY51wo7H5THEnWrbPUz8Jp7df93izCv1MQBu1sfof2GQw0bKOyU1wxw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -73,31 +73,31 @@ packages:
 
 snapshots:
 
-  '@paniolo/cli-darwin-arm64@0.5.77':
+  '@paniolo/cli-darwin-arm64@0.5.80':
     optional: true
 
-  '@paniolo/cli-darwin-x64@0.5.77':
+  '@paniolo/cli-darwin-x64@0.5.80':
     optional: true
 
-  '@paniolo/cli-linux-arm64@0.5.77':
+  '@paniolo/cli-linux-arm64@0.5.80':
     optional: true
 
-  '@paniolo/cli-linux-x64@0.5.77':
+  '@paniolo/cli-linux-x64@0.5.80':
     optional: true
 
-  '@paniolo/cli-win32-arm64@0.5.77':
+  '@paniolo/cli-win32-arm64@0.5.80':
     optional: true
 
-  '@paniolo/cli-win32-x64@0.5.77':
+  '@paniolo/cli-win32-x64@0.5.80':
     optional: true
 
-  '@paniolo/cli@0.5.77':
+  '@paniolo/cli@0.5.80':
     optionalDependencies:
-      '@paniolo/cli-darwin-arm64': 0.5.77
-      '@paniolo/cli-darwin-x64': 0.5.77
-      '@paniolo/cli-linux-arm64': 0.5.77
-      '@paniolo/cli-linux-x64': 0.5.77
-      '@paniolo/cli-win32-arm64': 0.5.77
-      '@paniolo/cli-win32-x64': 0.5.77
+      '@paniolo/cli-darwin-arm64': 0.5.80
+      '@paniolo/cli-darwin-x64': 0.5.80
+      '@paniolo/cli-linux-arm64': 0.5.80
+      '@paniolo/cli-linux-x64': 0.5.80
+      '@paniolo/cli-win32-arm64': 0.5.80
+      '@paniolo/cli-win32-x64': 0.5.80
 
   chrome-devtools-mcp@1.10.1: {}

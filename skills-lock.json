@@ -40,7 +40,7 @@
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-qmd/SKILL.md",
-			"computedHash": "4a4b3a3c600a1db310ed633f5fed7505797b3a1a644e8ec389dd95f5c33e085c",
+			"computedHash": "0b9c2c641697998f155fbbfc4517686a21ca037f2a3f561c4085ae902d2e9240",
 			"resolvedRef": "main"
 		},
 		"paniolo-safety-and-git-best-practices": {
@@ -68,14 +68,14 @@
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-stale/SKILL.md",
-			"computedHash": "cba7300b115cc4082e8d4522712dd36c32f3f167ceca47740449e4b6dcc1da2d",
+			"computedHash": "91d7c27958b3d7df579d84869e47b7df6399ff6932a335e9b5cc62a8f802d987",
 			"resolvedRef": "main"
 		},
 		"paniolo-stale-remediate": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-stale-remediate/SKILL.md",
-			"computedHash": "b35bc4a1d44669783909c5783b6e63c5a2b8f4e189b9d603ae8d7ed8a9a88f98",
+			"computedHash": "adf064d5d39d02ab056a51413b7691450028031a0f2d7fbcbd9f9f6953e4da6c",
 			"resolvedRef": "main"
 		},
 		"paniolo-typescript-best-practices": {
