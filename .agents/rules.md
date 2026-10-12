@@ -7,8 +7,7 @@ High-signal non-negotiables for agents working on the BEarth Stories harness. De
 
 - **Portability**: Scripts and commands must run on Windows PowerShell and WSL/Linux bash.
   Use Node's `path` resolution and avoid hard-coded separators.
-- **Markdown Linting**: All markdown files must pass structure and style checks. Keep lines
-  wrapped under 100 characters.
+- **Markdown Linting**: All markdown files must pass structure and style checks.
 - **Skill Compliance**: Skills under `.agents/skills/` must include valid frontmatter, stay
   under the configured line budget, and use repo-specific prefixes when applicable.
 - **Managed Skills**: Never edit `.agents/skills/external/` by hand — update vendored copies
