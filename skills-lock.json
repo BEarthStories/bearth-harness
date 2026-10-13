@@ -12,7 +12,7 @@
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-doc-best-practices/SKILL.md",
-			"computedHash": "22e0b72f7631e1f877566477d9086632f5f500a02747e3bbced391328d56e677",
+			"computedHash": "0a88df09375a509e1bdc168738cb8a6e4106f2ca58fde6828077d0ef66138dfa",
 			"resolvedRef": "main"
 		},
 		"paniolo-lint-error-resolution": {
@@ -26,7 +26,7 @@
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-markdown-lint-best-practices/SKILL.md",
-			"computedHash": "cdf359679e7a2b29be4f29d9ebd9745fcda8826d40c2b551fc5157d9401b3990",
+			"computedHash": "8a49a1d3041f39b23c25d74d188a061e7ee06cf363fdec7a4b0b97ae84af5eae",
 			"resolvedRef": "main"
 		},
 		"paniolo-naming-best-practices": {
@@ -68,14 +68,14 @@
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-stale/SKILL.md",
-			"computedHash": "91d7c27958b3d7df579d84869e47b7df6399ff6932a335e9b5cc62a8f802d987",
+			"computedHash": "4049ce7f93cb616a54344793ba7fc792088d94e02ef9da2d138fe4b7ca7daabb",
 			"resolvedRef": "main"
 		},
 		"paniolo-stale-remediate": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-stale-remediate/SKILL.md",
-			"computedHash": "adf064d5d39d02ab056a51413b7691450028031a0f2d7fbcbd9f9f6953e4da6c",
+			"computedHash": "31d40c625f48017315cce4537ef16ae5384deb4856857e61b9389e23287f0888",
 			"resolvedRef": "main"
 		},
 		"paniolo-typescript-best-practices": {
