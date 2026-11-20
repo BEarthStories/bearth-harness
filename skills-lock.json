@@ -1,109 +1,102 @@
 {
 	"version": 1,
 	"skills": {
-		"paniolo-code-comment-best-practices": {
+		"paniolo-code-comment": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
-			"skillPath": "skills/paniolo-code-comment-best-practices/SKILL.md",
-			"computedHash": "8f14864097f89d25e81e25d34064a481dcbd90a137cdb67ee42086b4606ff63a",
+			"skillPath": "skills/paniolo-code-comment/SKILL.md",
+			"computedHash": "cf732447e746bf5e8b399de287e679b6a085f3a562606e07e952b036519f9cc5",
 			"resolvedRef": "main"
 		},
-		"paniolo-doc-best-practices": {
+		"paniolo-doc": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
-			"skillPath": "skills/paniolo-doc-best-practices/SKILL.md",
-			"computedHash": "0a88df09375a509e1bdc168738cb8a6e4106f2ca58fde6828077d0ef66138dfa",
+			"skillPath": "skills/paniolo-doc/SKILL.md",
+			"computedHash": "5457f549fb0ff2cc5d9a0fd7128e78e1f0f4cf0f2e8c5435d97de0fe0520b474",
 			"resolvedRef": "main"
 		},
-		"paniolo-lint-error-resolution": {
+		"paniolo-markdown-lint": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
-			"skillPath": "skills/paniolo-lint-error-resolution/SKILL.md",
-			"computedHash": "2f40b2ed50f5c089a351ac55bfecffd8116b7792d1874caf1f0671dd66bff855",
+			"skillPath": "skills/paniolo-markdown-lint/SKILL.md",
+			"computedHash": "9a5f18bba572f46cfe510b9d1224a6d586c325f4063d478ce6cd9287009707d1",
 			"resolvedRef": "main"
 		},
-		"paniolo-markdown-lint-best-practices": {
+		"paniolo-naming": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
-			"skillPath": "skills/paniolo-markdown-lint-best-practices/SKILL.md",
-			"computedHash": "8a49a1d3041f39b23c25d74d188a061e7ee06cf363fdec7a4b0b97ae84af5eae",
-			"resolvedRef": "main"
-		},
-		"paniolo-naming-best-practices": {
-			"source": "paniolo-ai/skills",
-			"sourceType": "github",
-			"skillPath": "skills/paniolo-naming-best-practices/SKILL.md",
-			"computedHash": "e34754416f501d233a808ff4b9a2ee464779bac747c0e863683244c639637b49",
+			"skillPath": "skills/paniolo-naming/SKILL.md",
+			"computedHash": "6124454b1ea1397633f65e0d414c456408fe4032ac99ee12491d5d2ed8f34461",
 			"resolvedRef": "main"
 		},
 		"paniolo-qmd": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-qmd/SKILL.md",
-			"computedHash": "0b9c2c641697998f155fbbfc4517686a21ca037f2a3f561c4085ae902d2e9240",
+			"computedHash": "226196971fc26df1e8653a6894f21020ce096595fa3ff790ced23ac3c052c320",
 			"resolvedRef": "main"
 		},
-		"paniolo-safety-and-git-best-practices": {
+		"paniolo-safety-and-git": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
-			"skillPath": "skills/paniolo-safety-and-git-best-practices/SKILL.md",
-			"computedHash": "f29514c76aced729852210ef770b23d6a6ba25a130aebb63e79971d5d9ac6dae",
+			"skillPath": "skills/paniolo-safety-and-git/SKILL.md",
+			"computedHash": "ff87c4ef5104aecf6759add9d5f04ad44ddc4c732cadf071e97cfada63bc6004",
 			"resolvedRef": "main"
 		},
 		"paniolo-shared-browser": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-shared-browser/SKILL.md",
-			"computedHash": "2cf633d3798e8c8af3b291d40c4517e37a17913814a299657dceb1e7edddbe1f",
+			"computedHash": "1631ac592893ed2e0afa45d2f76334a07ec02f684fef6a1529f50e04a5b928e2",
 			"resolvedRef": "main"
 		},
-		"paniolo-skill-best-practices": {
+		"paniolo-skill": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
-			"skillPath": "skills/paniolo-skill-best-practices/SKILL.md",
-			"computedHash": "9ce388a2142c4c341ab2fb7a35f46652b7f2f42f46fc52af50f2f8b811ba81c1",
+			"skillPath": "skills/paniolo-skill/SKILL.md",
+			"computedHash": "87927c73a7d9ee5a1d2707885f6e0fa60e8e0ef0944d602e67b1aa3b86f3ef64",
 			"resolvedRef": "main"
 		},
 		"paniolo-stale": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-stale/SKILL.md",
-			"computedHash": "4049ce7f93cb616a54344793ba7fc792088d94e02ef9da2d138fe4b7ca7daabb",
+			"computedHash": "4d6594608b160263b1da6105ba581037463c31c4641d0abfeadda0706a9dc57e",
 			"resolvedRef": "main"
 		},
 		"paniolo-stale-remediate": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-stale-remediate/SKILL.md",
-			"computedHash": "31d40c625f48017315cce4537ef16ae5384deb4856857e61b9389e23287f0888",
+			"computedHash": "ab707688bd15dfed53582c871d3dc4e91d1f59a2a7efb9357920a5ed2d88be52",
 			"resolvedRef": "main"
 		},
-		"paniolo-typescript-best-practices": {
+		"paniolo-typescript": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
-			"skillPath": "skills/paniolo-typescript-best-practices/SKILL.md",
-			"computedHash": "502ec9370766d84e69d82ab3b2b036683f815d65cdeaf8cc19d1b9793ca646c5",
+			"skillPath": "skills/paniolo-typescript/SKILL.md",
+			"computedHash": "919e768e3b82c64be8d6016da9ecc080a52711d42c14817930c0966c03a6d444",
 			"resolvedRef": "main"
 		},
-		"paniolo-typescript-lint-best-practices": {
+		"paniolo-typescript-lint": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
-			"skillPath": "skills/paniolo-typescript-lint-best-practices/SKILL.md",
-			"computedHash": "c951badc9f0397bd68904b860a0ab1ac8ba92d30f59bbb8153a551c1706e8290",
+			"skillPath": "skills/paniolo-typescript-lint/SKILL.md",
+			"computedHash": "6d72a7c8edd529bbbf33db1a5c727f3dddeb4bc347a7f4dfa6669b68c728b7dd",
 			"resolvedRef": "main"
 		},
 		"paniolo-wiki": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
 			"skillPath": "skills/paniolo-wiki/SKILL.md",
-			"computedHash": "d6f2ad48aba010e0b36525a715dea132bfc5c8be430ff9ca925d8e19c52e4b1e",
+			"computedHash": "b7ba60ab1a28677ab65ac26a6abe91a4d84b92f22d74bc480969297bc12b626e",
 			"resolvedRef": "main"
 		},
-		"paniolo-writing-style-best-practices": {
+		"paniolo-writing": {
 			"source": "paniolo-ai/skills",
 			"sourceType": "github",
-			"skillPath": "skills/paniolo-writing-style-best-practices/SKILL.md",
-			"computedHash": "cb928921eaab1e4d64c082fdacb69ddc009572b6795ed3adba779b3cd527941b",
+			"skillPath": "skills/paniolo-writing/SKILL.md",
+			"computedHash": "ba78ad05fde9d496927c1ea5c85d01f2624395a5ffc5f253ae40fdb47a55c36c",
 			"resolvedRef": "main"
 		}
 	}

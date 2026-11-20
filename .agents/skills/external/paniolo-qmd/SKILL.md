@@ -4,7 +4,7 @@ description: |
   Find relevant skills, docs, and repo-specific guidance with the Paniolo qmd workspace search. Use before task-shaped work, when qmd results mention a repo-local skill, or when maintaining the qmd index. Do not use for editing qmd implementation code; use script, TypeScript, or test guidance for that.
 license: MIT
 metadata:
-  version: 0.5.15
+  version: 0.5.17
 tags:
 - qmd
 user-invocable: true
@@ -24,33 +24,53 @@ references: []
 
 ## Setup
 
-Install dependencies once with `pnpm install`. The harness pulls the correct
-`@paniolo/cli-<platform>-<arch>` binary for the current platform through the `@paniolo/cli`
-wrapper, so no global qmd install is needed. Set `PANIOLO_BIN` only when using a locally built
-binary.
+Install dependencies once with `pnpm install`. The harness pulls the correct `@paniolo/cli-<platform>-<arch>` binary for the current platform through the `@paniolo/cli` wrapper, so no global qmd install is needed. Set `PANIOLO_BIN` only when using a locally built binary.
 
-Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package;
-`paniolo bootstrap` verifies the binary it links against it and refuses on a
-mismatch.
+Platform binaries ship with a `SHA256SUMS.txt` manifest inside the package; `paniolo bootstrap` verifies the binary it links against it and refuses on a mismatch.
 
-- **Windows (PowerShell):** run `paniolo qmd reindex` to build the BM25 index and,
-  on a GPU-capable machine, generate the hybrid query embeddings.
-- **WSL (bash):** run `paniolo qmd reindex` to build the BM25 index. GPU embedding
-  stays on the Windows side; WSL uses fast BM25 `search`.
+- **Windows (PowerShell):** run `paniolo qmd reindex` to build the BM25 index and, on a GPU-capable machine, generate the hybrid query embeddings.
+- **WSL (bash):** run `paniolo qmd reindex` to build the BM25 index. GPU embedding stays on the Windows side; WSL uses fast BM25 `search`.
 
-Each platform keeps its own SQLite index on native local disk so Windows and
-WSL indexes never collide.
+Each platform keeps its own SQLite index on native local disk so Windows and WSL indexes never collide.
+
+### Noninteractive pnpm Prompt
+
+If `pnpm run qmd -- search ...` stops before Paniolo starts with
+`ERR_PNPM_ABORTED_REMOVE_MODULES_DIR_NO_TTY`, check that the installed local
+Paniolo shim exists and run it directly from the harness root:
+
+```powershell
+.\node_modules\.bin\paniolo.cmd qmd search "<task description>"
+```
+
+In WSL bash, use `./node_modules/.bin/paniolo qmd search "<task description>"`.
+The local shim uses the installed CLI and the same harness configuration. Do
+not set `CI=true` or disable pnpm's modules-purge confirmation merely to get
+past this prompt; that can authorize a dependency rewrite. If the shim is
+missing, inspect the configured skills and wiki directories and report that
+qmd was unavailable.
+
+### Sandbox Access To The Native Index
+
+If qmd reports `Access is denied` while inspecting a `workspace.sqlite` file
+under the platform's local state directory, the sandbox may be blocking that
+directory. Retry the same qmd command with the environment's approved
+filesystem access. Use the harness launcher or the installed local shim from
+above; do not relocate, copy, delete, or rebuild the index to evade the
+permission boundary.
+
+For `reindex`, wait for both indexing and embedding to finish, then run a
+targeted `qmd search` to verify the changed document is retrievable. If access
+cannot be granted, inspect the configured skill and wiki files directly,
+continue the task, and report that the index was not refreshed.
 
 ---
 
 ## Execution Workflow
 
-1. **Search** for candidates with `paniolo qmd search` (BM25),
-   `vsearch` (vector-only), or `query` (hybrid, GPU on Windows).
-2. **Load** only the clearly relevant returned files (or fetch with
-   `qmd get`/`multi-get`).
-3. If a result points to another repo's `.agents/skills/<name>/SKILL.md`, read that
-   repo-local skill for work in that repo.
+1. **Search** for candidates with `paniolo qmd search` (BM25), `vsearch` (vector-only), or `query` (hybrid, GPU on Windows).
+2. **Load** only the clearly relevant returned files (or fetch with `qmd get`/`multi-get`).
+3. If a result points to another repo's `.agents/skills/<name>/SKILL.md`, read that repo-local skill for work in that repo.
 4. After adding or editing markdown guidance, run `paniolo qmd reindex`.
 
 ---
@@ -59,15 +79,9 @@ WSL indexes never collide.
 
 Three modes, differing in cost as much as quality:
 
-- **`search` (BM25)** — exact words, titles, code symbols, rare phrases. Fast,
-  any platform, no model. Reach for this first when you know the term.
-- **`vsearch` (vector)** — semantic recall for one model's cost instead of
-  three. Use when you are describing a concept rather than naming it, but do not
-  need the hybrid stack's ranking quality. Needs embeddings: it fails with a
-  clear message on an index that has none.
-- **`query` (hybrid)** — best quality: BM25 + vector fused, then reranked.
-  GPU-accelerated on Windows; on WSL it falls back to BM25. Don't overuse
-  semantic search when a keyword would do.
+- **`search` (BM25)** — exact words, titles, code symbols, rare phrases. Fast, any platform, no model. Reach for this first when you know the term.
+- **`vsearch` (vector)** — semantic recall for one model's cost instead of three. Use when you are describing a concept rather than naming it, but do not need the hybrid stack's ranking quality. Needs embeddings: it fails with a clear message on an index that has none.
+- **`query` (hybrid)** — best quality: BM25 + vector fused, then reranked. GPU-accelerated on Windows; on WSL it falls back to BM25. Don't overuse semantic search when a keyword would do.
 
 ```bash
 paniolo qmd search  "zustand store hook"
