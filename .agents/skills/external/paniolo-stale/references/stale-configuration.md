@@ -1,29 +1,21 @@
 ---
 source-slug: stale-configuration
-source-hash: 127bc7d2eaffc594add10a50ad8fdaa4d08f5e237ef30e5a8bded6f9fc38184e
-bundled: 2026-10-11
+source-hash: 97b0319c5074d928bdf5b8382a7e07aa383508847dba308ac824729ec4f6a8ba
+bundled: 2026-11-01
 title: Stale Configuration
 type: concept
 tags:
 - staleness
 - harness-eng
 - configuration
-updated: 2026-10-11
+updated: 2026-10-27
 ---
 
 # Stale Configuration
 
-The `staleness` section of `paniolo.config.json` is the deployment control
-plane for `paniolo stale`. Per
-decision-staleness-configuration-authority, configuration
-owns deployment policy — model fleets, role assignments, budgets, ledger
-placement, content scopes — while provider protocols and safety invariants
-remain compiled Rust that configuration cannot relax.
+The `staleness` section of `paniolo.config.json` is the deployment control plane for `paniolo stale`. Per decision-staleness-configuration-authority, configuration owns deployment policy — model fleets, role assignments, budgets, ledger placement, content scopes — while provider protocols and safety invariants remain compiled Rust that configuration cannot relax.
 
-`paniolo stale` reads the section at invocation time: `--config` names the
-file (default `paniolo.config.json` under `--root`), and the `staleness`
-key inside it is validated as a whole. An absent section selects defaults;
-`null` does too. A malformed section is an error, not a warning.
+`paniolo stale` reads the section at invocation time: `--config` names the file (default `paniolo.config.json` under `--root`), and the `staleness` key inside it is validated as a whole. An absent section selects defaults; `null` does too. A malformed section is an error, not a warning.
 
 ## Contents
 
@@ -51,10 +43,10 @@ All keys are camelCase.
 | `ledgerPath` | string | `.paniolo` | Repo-relative directory for the Git-tracked snapshot and writer lease; the live database lives in native state. Required when a `staleness` section is present. Validated: non-empty, relative, no `.`/`..`/drive-prefix components |
 | `ledger.backend` | `sqlite` | `sqlite` | Production commands reject legacy `json`; `stale migrate` can still parse it to import an existing tree |
 | `agentProfiles` | map: name → `{adapter, model}` | `{default: {adapter: codex, model: default}}` | Required when a `staleness` section is present. Admitted adapters: `codex`, `claude`, `cursor`, `devin`; both fields must be non-empty |
-| `roles` | `{verifier, verdictChallenger, remediator, patchChallenger}` | every role → `default` | Each value names an `agentProfiles` key; unknown names fail validation |
+| `roles` | `{scout?, verifier, verdictChallenger, remediator, patchChallenger}` | scout absent; other roles → `default` | Each value names an `agentProfiles` key; unknown names fail validation. The optional scout requires a CLI release with configurable scout support |
 | `limits` | budget object | see [Limits And Retrieval](#limits-and-retrieval) | Phase, process, packet, repair, and total-invocation budgets |
 | `retrieval` | active and shadow retrieval object | active `4` / `50`; shadow off | `topK` and `maxImmediate` bound active scheduling. Optional `shadow` records non-authoritative qmd funnels; see [Limits And Retrieval](#limits-and-retrieval) |
-| `surfaces` | `{wikiPages, docs, codeComments}` | empty (admit all) | See [Content Surfaces](#content-surfaces) |
+| `surfaces` | `{wikiPages, docs, codeComments, htmlDocs}` | empty (admit all) | See [Content Surfaces](#content-surfaces) |
 | `autoMerge` | boolean | `false` | Request GitHub auto-merge only after the local merge gate authorizes the exact proposed head |
 
 ---
@@ -63,23 +55,11 @@ All keys are camelCase.
 
 ## Enablement And Local Overlay
 
-`enabled: false` makes `scan`, `run`, `propose`, and `worker` return a
-successful JSON response with `"status": "disabled"` before the ledger
-opens. It does not disable inspection, queue maintenance, calibration, or an
-independent workflow that passes a different `--config`. See
-[stale-triggers](./stale-triggers.md) for the command and trigger matrix.
+`enabled: false` makes `scan`, `run`, `propose`, and `worker` return a successful JSON response with `"status": "disabled"` before the ledger opens. It does not disable inspection, queue maintenance, calibration, or an independent workflow that passes a different `--config`. See [stale-triggers](./stale-triggers.md) for the command and trigger matrix.
 
-Agent filing through `stale flag` is intentionally stricter: the
-effective selected config must **explicitly** contain `enabled: true`.
-The built-in default of `true` does not count. Missing, false, and absent
-sections return `status: disabled` with no report record. This lets a
-working agent report evidence it already encountered only when its owner
-has opted into that behavior; filing never launches a remediation agent.
+Agent filing through `stale flag` is intentionally stricter: the effective selected config must **explicitly** contain `enabled: true`. The built-in default of `true` does not count. Missing, false, and absent sections return `status: disabled` with no report record. This lets a working agent report evidence it already encountered only when its owner has opted into that behavior; filing never launches a remediation agent.
 
-The canonical `paniolo.config.json` may have a sibling
-`paniolo.config.local.json`. The local file recursively overlays the tracked
-file: nested objects preserve unspecified tracked values and arrays replace
-rather than append. The local file is machine-owned and should be gitignored.
+The canonical `paniolo.config.json` may have a sibling `paniolo.config.local.json`. The local file recursively overlays the tracked file: nested objects preserve unspecified tracked values and arrays replace rather than append. The local file is machine-owned and should be gitignored.
 
 For a private owner override:
 
@@ -107,20 +87,25 @@ A profile is `{adapter, model}`; a role is assigned a profile name.
 
 ```json
 "agentProfiles": {
-  "codex-gpt-5-5": { "adapter": "codex", "model": "gpt-5.5" },
-  "cursor-swe-2-high": { "adapter": "cursor", "model": "swe-2-high" }
+  "devin-swe-2-max": { "adapter": "devin", "model": "swe-2-max" },
+  "devin-swe-2-high": { "adapter": "devin", "model": "swe-2-high" }
 },
 "roles": {
-  "verifier": "codex-gpt-5-5",
-  "verdictChallenger": "codex-gpt-5-5",
-  "remediator": "cursor-swe-2-high",
-  "patchChallenger": "codex-gpt-5-5"
+  "scout": "devin-swe-2-max",
+  "verifier": "devin-swe-2-max",
+  "verdictChallenger": "devin-swe-2-high",
+  "remediator": "devin-swe-2-max",
+  "patchChallenger": "devin-swe-2-high"
 }
 ```
 
-Pairing a verifier family with a *different* challenger family keeps the
-challenge independent rather than asking one vendor to audit itself. The
-admitted adapter names are `codex`, `claude`, `cursor`, and `devin`.
+Use independent model profiles for verification and challenge. The frozen Q1
+replay passed with Devin Max/High; Max challenging itself had a critical false
+dismissal. The admitted adapter names are `codex`, `claude`, `cursor`, and
+`devin`. If `roles.scout` is absent, the opt-in merge-scoped scout uses Cursor
+Auto for backward compatibility. Older CLI releases ignore `roles.scout` and
+still use Cursor Auto, so release the configurable scout before a Devin-only
+scout trial.
 
 ---
 
@@ -242,24 +227,25 @@ silently rewrite the saved configuration.
 
 ## Example
 
-The tracked harness workspace config currently assigns Cursor Auto to
-verification and remediation and Devin SWE-2 High to both challengers.
-It keeps automation off by default and scopes the surfaces:
+The Devin-only pilot configuration assigns SWE-2 Max to scout, verification,
+and remediation, and SWE-2 High to both challengers. The scheduled worker and
+remediation auto-merge remain off; guarded ledger-only auto-merge is enabled:
 
 ```json
 "staleness": {
   "enabled": false,
   "ledgerPath": ".paniolo",
-  "ledger": { "backend": "sqlite" },
-  "autoMerge": true,
+  "autoMerge": false,
+  "ledgerAutoMerge": true,
   "agentProfiles": {
-    "cursor-auto": { "adapter": "cursor", "model": "auto" },
-    "devin-swe-2-high": { "adapter": "devin", "model": "swe-2-high" }
+    "devin-swe-2-high": { "adapter": "devin", "model": "swe-2-high" },
+    "devin-swe-2-max": { "adapter": "devin", "model": "swe-2-max" }
   },
   "roles": {
-    "verifier": "cursor-auto",
+    "scout": "devin-swe-2-max",
+    "verifier": "devin-swe-2-max",
     "verdictChallenger": "devin-swe-2-high",
-    "remediator": "cursor-auto",
+    "remediator": "devin-swe-2-max",
     "patchChallenger": "devin-swe-2-high"
   },
   "limits": {
@@ -291,9 +277,14 @@ It keeps automation off by default and scopes the surfaces:
       "exclude": ["target/**", "vendor/**", "generated/**"]
     },
     "codeComments": {
-      "repositories": ["ranch-hand"],
-      "include": ["**/*.rs", "**/*.ts", "**/*.tsx"],
-      "exclude": ["target/**", "vendor/**", "generated/**"]
+      "repositories": ["ranch-hand", "paniolo.ai"],
+      "include": ["**/*.rs", "**/*.ts", "**/*.tsx", "**/*.js"],
+      "exclude": ["target/**", "vendor/**", "generated/**", "**/node_modules/**", "**/dist/**", "**/test-results/**", "**/.wrangler/**"]
+    },
+    "htmlDocs": {
+      "repositories": ["paniolo.ai"],
+      "include": ["*.html", "docs/**/*.html", "pages/**/*.html"],
+      "exclude": ["drafts/**", "react/**", "dist/**", "node_modules/**", "test-results/**"]
     }
   }
 }
