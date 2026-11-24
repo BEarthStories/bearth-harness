@@ -9,22 +9,22 @@ importers:
   .:
     dependencies:
       '@paniolo/cli':
-        specifier: ^0.5.111
-        version: 0.5.111
+        specifier: ^0.5.112
+        version: 0.5.112
       chrome-devtools-mcp:
         specifier: 1.10.1
         version: 1.10.1
 
 packages:
 
-  '@paniolo/cli-darwin-arm64@0.5.111':
-    resolution: {integrity: sha512-bkhxhpElVbMdFbE5zwsPBWRFMFRr0pnxDN0daaYa3M2auoba7ktGOMLEowV5vKzASM9jqmeSwxO0qqIJTgtrGg==}
+  '@paniolo/cli-darwin-arm64@0.5.112':
+    resolution: {integrity: sha512-/SgUR9zgB3sCnwC+6WB97C1u/63C16k4IoaOIaiZl39D9pp3OUL21HAbHgWpDaO6S6AYx1prBpALKMJVzpd2xg==}
     cpu: [arm64]
     os: [darwin]
     hasBin: true
 
-  '@paniolo/cli-darwin-x64@0.5.111':
-    resolution: {integrity: sha512-Tgu93HPvhAF2FwIO4cu2ZAF1ho8I3aAbteIaS13iWbIaYcThElhoOG7kqL+Yi35Hrhf36YLdFAsXJlv0XTO0mQ==}
+  '@paniolo/cli-darwin-x64@0.5.112':
+    resolution: {integrity: sha512-K8e05IUVel+U8SeApM/KiOOTpF/lcUe53/AGO3vcjL7/dqj2TTNExMztzVqvnMfKJkO8zdtSt7vZAtN3eWSfgw==}
     cpu: [x64]
     os: [darwin]
     hasBin: true
@@ -59,14 +59,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@paniolo/cli-linux-arm64@0.5.111':
-    resolution: {integrity: sha512-XQTBt6bvZG75evyNpTqutLnWcA2zAiqWvKV84PgMCvuTd/lovUd3wjnpE1Y0iwz88PVVD/X6fqdo49V5W1xgfg==}
+  '@paniolo/cli-linux-arm64@0.5.112':
+    resolution: {integrity: sha512-J5qPI/03ILhROJ09CnxlKNi9yaO9v3WrBcMvdpN5UABSrPY793D37qt+KE14o7sqVGEOwIwGnyub2qC+BBx4Hg==}
     cpu: [arm64]
     os: [linux]
     hasBin: true
 
-  '@paniolo/cli-linux-x64@0.5.111':
-    resolution: {integrity: sha512-u0Dlne2jKsmRqAiVyQRMlJnU3mIYyIx7y5htn8Sj+29HrfJJq+wTJSqH83SdOC32X52wgRYqFCtchw8h1Dw9Gg==}
+  '@paniolo/cli-linux-x64@0.5.112':
+    resolution: {integrity: sha512-ksu93b1MlVGAK3p0C8GDsNLGghaCrh0+Z/Om+tPsyT09o36+bVz5pXzXvoReEwvOCdakbykTrUY2A3iYIFazQA==}
     cpu: [x64]
     os: [linux]
     hasBin: true
@@ -101,33 +101,33 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@paniolo/cli-mcp-darwin-arm64@0.1.0':
-    resolution: {integrity: sha512-rp5G0LF0m0N6YJN4bokBiEFRu5T5s1P66208WZSCeQzX5gQbsC6kSWmDDbtPutjBCzU+dOdXihPMEnJDWDriOA==}
+  '@paniolo/cli-mcp-darwin-arm64@0.1.3':
+    resolution: {integrity: sha512-waKn7bpkS3jQBQAET52VFzhWmR5cp9JRWMEQLXsPMLGT63/EBMoJEfM79itFOKpWh2HZ6GkeernDWB9dScUmPg==}
     cpu: [arm64]
     os: [darwin]
 
-  '@paniolo/cli-mcp-darwin-x64@0.1.0':
-    resolution: {integrity: sha512-+iYkmk4utqfLAEfh5kJ+GtSHL9a/iDUD03D3ukvGVJCfeOz2LPTp1UqM30QX+kEGUgYh11vEpJ+ngVOLfkhkzw==}
+  '@paniolo/cli-mcp-darwin-x64@0.1.3':
+    resolution: {integrity: sha512-S22B4RSm//bQSWa/H2lj9JGSMfHcHK62xlfEuedFJLSAaEDcMj636fh4mVWz6r9IIkBcvYz9HrxaCnxj1bi+5w==}
     cpu: [x64]
     os: [darwin]
 
-  '@paniolo/cli-mcp-linux-arm64@0.1.0':
-    resolution: {integrity: sha512-f+s3yBsBORXK9h0kGkERJOVWCvyLurUX4oWoW6sVXtRgP9ciwe3DAKcOWGBaeoUmYe5FjVPTYlJvlIf/o2OVlQ==}
+  '@paniolo/cli-mcp-linux-arm64@0.1.3':
+    resolution: {integrity: sha512-zxOlh0R8MeYuIqRLpcJ4CeuL7d2RKVUoYs99FZPbUATQdQRtGHuxMlPyKrW5tkpxeGGkDqYk9ZWN0oQgg0Au8Q==}
     cpu: [arm64]
     os: [linux]
 
-  '@paniolo/cli-mcp-linux-x64@0.1.0':
-    resolution: {integrity: sha512-Ol34eDg5r7XaSDHy2PF5yQhgBPNS8EbPuM/4ZQzV9kyh3QUZPSGDBsK0FnVBzMBBRMZPnHLLEK04N4qVG8kEtA==}
+  '@paniolo/cli-mcp-linux-x64@0.1.3':
+    resolution: {integrity: sha512-tyvcCkfM4ZTHtjpW/CAekUHIn505ImIVekt/ZcIvtR41bGDN5gMEVvMlLAkW/GIY2nkiG/lmEA6dow010uzMCQ==}
     cpu: [x64]
     os: [linux]
 
-  '@paniolo/cli-mcp-win32-arm64@0.1.0':
-    resolution: {integrity: sha512-u7sGA0Q4SjeVWhskYf+BT+g0E57FXEBCGto696FHP9yS+h1nQPXx6kfAYGGPHFnyvGCm3N3NgSC0DO2bDkNr6w==}
+  '@paniolo/cli-mcp-win32-arm64@0.1.3':
+    resolution: {integrity: sha512-SB1W1u3cmWJu8aDGqTpcY7TBn1jWaw0GpwAU+JfOmEqda7RCV+Yilg4KqIowP9DXQ7YSlam8fLsH205W7g4yrQ==}
     cpu: [arm64]
     os: [win32]
 
-  '@paniolo/cli-mcp-win32-x64@0.1.0':
-    resolution: {integrity: sha512-wqMGudteJzL1FZJWhLN19ScC6e8iJx8taFb+GhAYn3qVRQpJQqYXYDXzjJN/hwXNHk5kRlju/6g13g6vDLKXsg==}
+  '@paniolo/cli-mcp-win32-x64@0.1.3':
+    resolution: {integrity: sha512-VH4uiiQDeOnNwMiiFb6cuTCYaai+vRap1Fey0pU89lNj5KkVJmtQ0eLY+KKAcFUEBNI1l/F19UkZITF5cPhtUQ==}
     cpu: [x64]
     os: [win32]
 
@@ -158,6 +158,36 @@ packages:
 
   '@paniolo/cli-qmd-win32-x64@0.1.1':
     resolution: {integrity: sha512-kDYBobUJUYsO2YTgXDdEPZIOeg42cyuw/TTQIJyZ7eTpnVqvx+utd8LqSIh4YU/nc7othqK19YPhazJBHo3NuQ==}
+    cpu: [x64]
+    os: [win32]
+
+  '@paniolo/cli-queue-darwin-arm64@0.1.0':
+    resolution: {integrity: sha512-ho+IzsX4ZC4jZKltHZT6xQfcmjUqOAvTPlBy81RIogWo+6kzVByBWCyrKrRrjxaucy8ijDzkVB6Sldxn9iFNuA==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@paniolo/cli-queue-darwin-x64@0.1.0':
+    resolution: {integrity: sha512-/K+7k7B3LsQaHMrkTUoa13HwVjkhSDsNMbkU5m28L+A7ml7DGrgwxNXbzrnCOUQVPK/WxWddqrd5YD5J/A5rMQ==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@paniolo/cli-queue-linux-arm64@0.1.0':
+    resolution: {integrity: sha512-Ae7wL3Bgju4e2oXuU+E8osUY7+OVpCgNBykWlkE+UJ78SCL+4HAZxlpAUmN9G9OrbwxYgC9VvTAHvh1QukC2bQ==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@paniolo/cli-queue-linux-x64@0.1.0':
+    resolution: {integrity: sha512-s/fRxeqlh7eeaDWlJNfFzNNOzRu2Bt12PU7XTq1gqzSOBBfG++UAmZmjXj9Z27AOhPzcqv8U/xZNjJvYfoJOfQ==}
+    cpu: [x64]
+    os: [linux]
+
+  '@paniolo/cli-queue-win32-arm64@0.1.0':
+    resolution: {integrity: sha512-+pn2dFBcjS47iRI7Ao2A/1cmth3ha3GlUxIk53y2byDndRYVxtmqad9DNqJYPfsW9utO8deKw8VNzhlBSr3U1g==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@paniolo/cli-queue-win32-x64@0.1.0':
+    resolution: {integrity: sha512-2kKiT3Tv6BbaHG18mrGN1nP79HePoExjWP2EDaYd5Cq/QC2TCwQM90v03BgaU8CoJRVjgMFZwHidHaysr3yYWQ==}
     cpu: [x64]
     os: [win32]
 
@@ -221,44 +251,44 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@paniolo/cli-wiki-darwin-arm64@0.1.1':
-    resolution: {integrity: sha512-+R3rbEat5pReubMxXj2eGIeuqd1d2+sF1+8yLSvpdRogvdVaclDQ/3kFIB141vP6XBc+O94USgDoRZfTwUSd6Q==}
+  '@paniolo/cli-wiki-darwin-arm64@0.1.2':
+    resolution: {integrity: sha512-Iuv+Cd/2vDx9b5WgX5EFrS+x21lveFQ6nqlO1H6fcHDYRc+MQOkIKQmgMn2rDRAmAv7EP8NgB9h/n34uEWdXtA==}
     cpu: [arm64]
     os: [darwin]
 
-  '@paniolo/cli-wiki-darwin-x64@0.1.1':
-    resolution: {integrity: sha512-8ZSMwAjniUINSpvNOuFFC2tw46foVq2g7za8Mr3izAyCWHHqMQdxJobQGPrCZvxl6smGG0UFe4FoyLGnoNGLRA==}
+  '@paniolo/cli-wiki-darwin-x64@0.1.2':
+    resolution: {integrity: sha512-bgw6pT+ejG9ycOjmDfuCQxjuHdfJlk+oKdSC7koy2Sm4CZCTbExYVSzeCjue3EbE8+jDc5ZNpYjr48yNAQXFSA==}
     cpu: [x64]
     os: [darwin]
 
-  '@paniolo/cli-wiki-linux-arm64@0.1.1':
-    resolution: {integrity: sha512-uscwzODLeLQWmcFx0dwB+7UxfPVCrksmdfWV/yNhW/+GHPqSbgpEAsd8CkYkm9NmmZqA4rsQlNsGWZBMyTxiig==}
+  '@paniolo/cli-wiki-linux-arm64@0.1.2':
+    resolution: {integrity: sha512-wLzn/9otGMhPRTlVd17KhROMIrhGzvFO9lZemg8gusP5sZI7WB6/Exwa76Al+mNodEb9cIr6GZvZjnJrdlwNmw==}
     cpu: [arm64]
     os: [linux]
 
-  '@paniolo/cli-wiki-linux-x64@0.1.1':
-    resolution: {integrity: sha512-RKqG2gZGSoo5ba1R4lvnQfX5Z3Zl8cUHPUBMLNMykQDOGIxt7+x1c7FHV5/KkIQEoWx7SlklKlBqD9WE0vMcpQ==}
+  '@paniolo/cli-wiki-linux-x64@0.1.2':
+    resolution: {integrity: sha512-9fWCEypEbGQJ3fUZWdtbOYtcor2BPK/U9W8BDTye8OhUT3KQ7agIpBN1ZgfG8KsPLrUGEBWf+3cAY5YZf8keyg==}
     cpu: [x64]
     os: [linux]
 
-  '@paniolo/cli-wiki-win32-arm64@0.1.1':
-    resolution: {integrity: sha512-XjXT3EtIDa6kskeoVax6ZJ4NVcfH1IMbysu5BPQmRCheZw2+n9uY3e7Sp7fEUWTLq1QAjPyYe49iJ9Yup+4D9Q==}
+  '@paniolo/cli-wiki-win32-arm64@0.1.2':
+    resolution: {integrity: sha512-PY4GB04+vb3pYLEK4xx+DN2tBdnWoGEB0buE8n4Ok0n2JaKsrlOkIOHc2wkn9WUY1IIr1g/FRJKZyk5Qa9A7iQ==}
     cpu: [arm64]
     os: [win32]
 
-  '@paniolo/cli-wiki-win32-x64@0.1.1':
-    resolution: {integrity: sha512-yFs57gf1bvOw4+kUSe804+RwTZVQPLjMzl9DKiLrwjHId0RzaCZP+Eq0RPZwQk2Ssc9m7Oh8+m/gOVUFpy7VGw==}
+  '@paniolo/cli-wiki-win32-x64@0.1.2':
+    resolution: {integrity: sha512-yVGe6Ale3QLmJXwJZ4vSHa08fEJbo8eCnaSuO5jF++/nYYAmWlZfvq4bOsgh9TE3dzzZPLQnDI2FKOerVOLQUA==}
     cpu: [x64]
     os: [win32]
 
-  '@paniolo/cli-win32-arm64@0.5.111':
-    resolution: {integrity: sha512-LuztFm5EqZ4iOBmupBAV5HvSka6kKCgMK7l3WSDtV7NIXasBoXZc725mLyNqiz9GSR9K7XrKlGbN5s1CoZCZsg==}
+  '@paniolo/cli-win32-arm64@0.5.112':
+    resolution: {integrity: sha512-bQgu0jzKunla7mK+SVVMnhDA2VK5SzAlPl2QBTjgoghDA4lzw4qEXSSwAgYJ60kNIeLZgX3wxNI/dOmFt4CbIQ==}
     cpu: [arm64]
     os: [win32]
     hasBin: true
 
-  '@paniolo/cli-win32-x64@0.5.111':
-    resolution: {integrity: sha512-mmadlkvDc2po6QwN/Upxj+r4j1FTs4AcQYKaW4X0qAoYGOPLtzOLkQq7uPlmkcnBVc3/9Wgf6HMkQ5e0yENcDw==}
+  '@paniolo/cli-win32-x64@0.5.112':
+    resolution: {integrity: sha512-o/8pxrkMqphqESZX1PCEINXTa4OOAKssKXJpsN6X6pUZe/1yS7mj+wfrl9+NOKZbJb3n1qHiB/3OCfQ4uNVydg==}
     cpu: [x64]
     os: [win32]
     hasBin: true
@@ -293,8 +323,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@paniolo/cli@0.5.111':
-    resolution: {integrity: sha512-rzw2soo6zIFw6su5n5YEHoru6dr3a4EyzGi/gTKDudtvPYNZu8uYeiJ92ZKRysyJyqzQIcCHs3+zJsp2oqLDfA==}
+  '@paniolo/cli@0.5.112':
+    resolution: {integrity: sha512-JAobQjn+H65ru8MKUw49Z6jo4VJw5o5fQ2XnzW5eRdzC2U5UnpMSlLBHmHVBAsT3+6Q2QlqRC8K1MyR4oobKyg==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -313,27 +343,29 @@ packages:
 
 snapshots:
 
-  '@paniolo/cli-darwin-arm64@0.5.111':
+  '@paniolo/cli-darwin-arm64@0.5.112':
     optionalDependencies:
       '@paniolo/cli-evolve-darwin-arm64': 0.1.0
       '@paniolo/cli-maintenance-darwin-arm64': 0.1.0
-      '@paniolo/cli-mcp-darwin-arm64': 0.1.0
+      '@paniolo/cli-mcp-darwin-arm64': 0.1.3
       '@paniolo/cli-qmd-darwin-arm64': 0.1.1
+      '@paniolo/cli-queue-darwin-arm64': 0.1.0
       '@paniolo/cli-scan-darwin-arm64': 0.1.1
       '@paniolo/cli-stale-darwin-arm64': 0.1.0
-      '@paniolo/cli-wiki-darwin-arm64': 0.1.1
+      '@paniolo/cli-wiki-darwin-arm64': 0.1.2
       '@paniolo/cli-worktree-darwin-arm64': 0.1.1
     optional: true
 
-  '@paniolo/cli-darwin-x64@0.5.111':
+  '@paniolo/cli-darwin-x64@0.5.112':
     optionalDependencies:
       '@paniolo/cli-evolve-darwin-x64': 0.1.0
       '@paniolo/cli-maintenance-darwin-x64': 0.1.0
-      '@paniolo/cli-mcp-darwin-x64': 0.1.0
+      '@paniolo/cli-mcp-darwin-x64': 0.1.3
       '@paniolo/cli-qmd-darwin-x64': 0.1.1
+      '@paniolo/cli-queue-darwin-x64': 0.1.0
       '@paniolo/cli-scan-darwin-x64': 0.1.1
       '@paniolo/cli-stale-darwin-x64': 0.1.0
-      '@paniolo/cli-wiki-darwin-x64': 0.1.1
+      '@paniolo/cli-wiki-darwin-x64': 0.1.2
       '@paniolo/cli-worktree-darwin-x64': 0.1.1
     optional: true
 
@@ -355,27 +387,29 @@ snapshots:
   '@paniolo/cli-evolve-win32-x64@0.1.0':
     optional: true
 
-  '@paniolo/cli-linux-arm64@0.5.111':
+  '@paniolo/cli-linux-arm64@0.5.112':
     optionalDependencies:
       '@paniolo/cli-evolve-linux-arm64': 0.1.0
       '@paniolo/cli-maintenance-linux-arm64': 0.1.0
-      '@paniolo/cli-mcp-linux-arm64': 0.1.0
+      '@paniolo/cli-mcp-linux-arm64': 0.1.3
       '@paniolo/cli-qmd-linux-arm64': 0.1.1
+      '@paniolo/cli-queue-linux-arm64': 0.1.0
       '@paniolo/cli-scan-linux-arm64': 0.1.1
       '@paniolo/cli-stale-linux-arm64': 0.1.0
-      '@paniolo/cli-wiki-linux-arm64': 0.1.1
+      '@paniolo/cli-wiki-linux-arm64': 0.1.2
       '@paniolo/cli-worktree-linux-arm64': 0.1.1
     optional: true
 
-  '@paniolo/cli-linux-x64@0.5.111':
+  '@paniolo/cli-linux-x64@0.5.112':
     optionalDependencies:
       '@paniolo/cli-evolve-linux-x64': 0.1.0
       '@paniolo/cli-maintenance-linux-x64': 0.1.0
-      '@paniolo/cli-mcp-linux-x64': 0.1.0
+      '@paniolo/cli-mcp-linux-x64': 0.1.3
       '@paniolo/cli-qmd-linux-x64': 0.1.1
+      '@paniolo/cli-queue-linux-x64': 0.1.0
       '@paniolo/cli-scan-linux-x64': 0.1.1
       '@paniolo/cli-stale-linux-x64': 0.1.0
-      '@paniolo/cli-wiki-linux-x64': 0.1.1
+      '@paniolo/cli-wiki-linux-x64': 0.1.2
       '@paniolo/cli-worktree-linux-x64': 0.1.1
     optional: true
 
@@ -397,22 +431,22 @@ snapshots:
   '@paniolo/cli-maintenance-win32-x64@0.1.0':
     optional: true
 
-  '@paniolo/cli-mcp-darwin-arm64@0.1.0':
+  '@paniolo/cli-mcp-darwin-arm64@0.1.3':
     optional: true
 
-  '@paniolo/cli-mcp-darwin-x64@0.1.0':
+  '@paniolo/cli-mcp-darwin-x64@0.1.3':
     optional: true
 
-  '@paniolo/cli-mcp-linux-arm64@0.1.0':
+  '@paniolo/cli-mcp-linux-arm64@0.1.3':
     optional: true
 
-  '@paniolo/cli-mcp-linux-x64@0.1.0':
+  '@paniolo/cli-mcp-linux-x64@0.1.3':
     optional: true
 
-  '@paniolo/cli-mcp-win32-arm64@0.1.0':
+  '@paniolo/cli-mcp-win32-arm64@0.1.3':
     optional: true
 
-  '@paniolo/cli-mcp-win32-x64@0.1.0':
+  '@paniolo/cli-mcp-win32-x64@0.1.3':
     optional: true
 
   '@paniolo/cli-qmd-darwin-arm64@0.1.1':
@@ -431,6 +465,24 @@ snapshots:
     optional: true
 
   '@paniolo/cli-qmd-win32-x64@0.1.1':
+    optional: true
+
+  '@paniolo/cli-queue-darwin-arm64@0.1.0':
+    optional: true
+
+  '@paniolo/cli-queue-darwin-x64@0.1.0':
+    optional: true
+
+  '@paniolo/cli-queue-linux-arm64@0.1.0':
+    optional: true
+
+  '@paniolo/cli-queue-linux-x64@0.1.0':
+    optional: true
+
+  '@paniolo/cli-queue-win32-arm64@0.1.0':
+    optional: true
+
+  '@paniolo/cli-queue-win32-x64@0.1.0':
     optional: true
 
   '@paniolo/cli-scan-darwin-arm64@0.1.1':
@@ -469,45 +521,47 @@ snapshots:
   '@paniolo/cli-stale-win32-x64@0.1.0':
     optional: true
 
-  '@paniolo/cli-wiki-darwin-arm64@0.1.1':
+  '@paniolo/cli-wiki-darwin-arm64@0.1.2':
     optional: true
 
-  '@paniolo/cli-wiki-darwin-x64@0.1.1':
+  '@paniolo/cli-wiki-darwin-x64@0.1.2':
     optional: true
 
-  '@paniolo/cli-wiki-linux-arm64@0.1.1':
+  '@paniolo/cli-wiki-linux-arm64@0.1.2':
     optional: true
 
-  '@paniolo/cli-wiki-linux-x64@0.1.1':
+  '@paniolo/cli-wiki-linux-x64@0.1.2':
     optional: true
 
-  '@paniolo/cli-wiki-win32-arm64@0.1.1':
+  '@paniolo/cli-wiki-win32-arm64@0.1.2':
     optional: true
 
-  '@paniolo/cli-wiki-win32-x64@0.1.1':
+  '@paniolo/cli-wiki-win32-x64@0.1.2':
     optional: true
 
-  '@paniolo/cli-win32-arm64@0.5.111':
+  '@paniolo/cli-win32-arm64@0.5.112':
     optionalDependencies:
       '@paniolo/cli-evolve-win32-arm64': 0.1.0
       '@paniolo/cli-maintenance-win32-arm64': 0.1.0
-      '@paniolo/cli-mcp-win32-arm64': 0.1.0
+      '@paniolo/cli-mcp-win32-arm64': 0.1.3
       '@paniolo/cli-qmd-win32-arm64': 0.1.1
+      '@paniolo/cli-queue-win32-arm64': 0.1.0
       '@paniolo/cli-scan-win32-arm64': 0.1.1
       '@paniolo/cli-stale-win32-arm64': 0.1.0
-      '@paniolo/cli-wiki-win32-arm64': 0.1.1
+      '@paniolo/cli-wiki-win32-arm64': 0.1.2
       '@paniolo/cli-worktree-win32-arm64': 0.1.1
     optional: true
 
-  '@paniolo/cli-win32-x64@0.5.111':
+  '@paniolo/cli-win32-x64@0.5.112':
     optionalDependencies:
       '@paniolo/cli-evolve-win32-x64': 0.1.0
       '@paniolo/cli-maintenance-win32-x64': 0.1.0
-      '@paniolo/cli-mcp-win32-x64': 0.1.0
+      '@paniolo/cli-mcp-win32-x64': 0.1.3
       '@paniolo/cli-qmd-win32-x64': 0.1.1
+      '@paniolo/cli-queue-win32-x64': 0.1.0
       '@paniolo/cli-scan-win32-x64': 0.1.1
       '@paniolo/cli-stale-win32-x64': 0.1.0
-      '@paniolo/cli-wiki-win32-x64': 0.1.1
+      '@paniolo/cli-wiki-win32-x64': 0.1.2
       '@paniolo/cli-worktree-win32-x64': 0.1.1
     optional: true
 
@@ -529,13 +583,13 @@ snapshots:
   '@paniolo/cli-worktree-win32-x64@0.1.1':
     optional: true
 
-  '@paniolo/cli@0.5.111':
+  '@paniolo/cli@0.5.112':
     optionalDependencies:
-      '@paniolo/cli-darwin-arm64': 0.5.111
-      '@paniolo/cli-darwin-x64': 0.5.111
-      '@paniolo/cli-linux-arm64': 0.5.111
-      '@paniolo/cli-linux-x64': 0.5.111
-      '@paniolo/cli-win32-arm64': 0.5.111
-      '@paniolo/cli-win32-x64': 0.5.111
+      '@paniolo/cli-darwin-arm64': 0.5.112
+      '@paniolo/cli-darwin-x64': 0.5.112
+      '@paniolo/cli-linux-arm64': 0.5.112
+      '@paniolo/cli-linux-x64': 0.5.112
+      '@paniolo/cli-win32-arm64': 0.5.112
+      '@paniolo/cli-win32-x64': 0.5.112
 
   chrome-devtools-mcp@1.10.1: {}
